@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.8
+-- version 3.5.8.1deb1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 31, 2014 at 10:20 AM
--- Server version: 5.5.30-30.1
--- PHP Version: 5.4.23
+-- Generation Time: Jul 23, 2014 at 04:36 PM
+-- Server version: 5.5.34-0ubuntu0.13.04.1
+-- PHP Version: 5.4.9-4ubuntu2.4
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `tpsoln_mvc`
+-- Database: `tps`
 --
 
 -- --------------------------------------------------------
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `downloads` (
   `file` varchar(50) NOT NULL,
   `date` varchar(60) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=562 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=680 ;
 
 --
 -- Dumping data for table `downloads`
@@ -627,7 +627,126 @@ INSERT INTO `downloads` (`id`, `email`, `file`, `date`) VALUES
 (558, '8-7', '', 'March 16, 2014, 5:14 pm'),
 (559, '9-8', '', 'March 16, 2014, 5:14 pm'),
 (560, '9-8', '', 'March 16, 2014, 5:14 pm'),
-(561, '................oot.ini', '', 'March 16, 2014, 5:15 pm');
+(561, '................oot.ini', '', 'March 16, 2014, 5:15 pm'),
+(562, 'eileen@eileenflynnconsulting.com', 'Team_Fundamentals_Checklist.pdf', 'April 2, 2014, 7:25 am'),
+(563, 'mtotho@gmail.com', 'Team_Fundamentals_Checklist.pdf', 'April 2, 2014, 8:28 am'),
+(564, 'mtotho@gmail.com', 'Team_health_check.pdf', 'April 2, 2014, 8:35 am'),
+(565, 'mtotho@gmail.com', 'Team_health_check.pdf', 'April 2, 2014, 8:36 am'),
+(566, 'eileen@eileenflynnconsulting.com', 'Team_health_check.pdf', 'April 2, 2014, 8:52 pm'),
+(567, 'rbkbateman@msn.com', 'Accelerating_Team_Performance-White_Paper.pdf', 'April 24, 2014, 2:45 pm'),
+(568, 'Fj', 'Accelerating_Team_Performance-White_Paper.pdf', 'June 4, 2014, 6:34 am'),
+(569, 'Fj', 'Accelerating_Team_Performance-White_Paper.pdf', 'June 4, 2014, 7:00 am'),
+(570, 'hg', 'OD_Journal_Teams_article.pdf', 'June 4, 2014, 10:12 am'),
+(571, 'hg', 'Accelerating_Team_Performance-White_Paper.pdf', 'June 4, 2014, 10:13 am'),
+(572, 'hg', 'Accelerating_Team_Performance-White_Paper.pdf', 'June 4, 2014, 10:14 am'),
+(573, 'hg', 'Accelerating_Team_Performance-White_Paper.pdf', 'June 4, 2014, 10:16 am'),
+(574, 'robercanas@gmail.com', 'Team_health_check.pdf', 'June 11, 2014, 3:03 am'),
+(575, 'wuest@cwuest.com', 'OD_Journal_Teams_article.pdf', 'June 20, 2014, 5:57 am'),
+(576, 'wuest@cwuest.com', 'Accelerating_Team_Performance-White_Paper.pdf', 'June 20, 2014, 6:01 am'),
+(577, 'eileen@eileenflynnconsulting.com', 'Team_health_check.pdf', 'June 20, 2014, 11:40 am'),
+(578, 'eileen@eileenflynnconsulting.com', 'Team_health_check.pdf', 'June 20, 2014, 11:47 am'),
+(579, 'eileen@eileenflynnconsulting.com', 'Team_health_check.pdf', 'June 20, 2014, 11:55 am'),
+(580, 'eileen@eileenflynnconsulting.com', 'Team_health_check.pdf', 'June 20, 2014, 12:28 pm'),
+(581, 'steve@geipartners.com', 'SAMPLE_TEAM.pdf', 'June 30, 2014, 2:25 pm'),
+(582, 'george@gdi-assoc.com', 'Team_health_check.pdf', 'July 13, 2014, 5:19 pm'),
+(583, 'file:///etc/passwd.js', '', 'July 15, 2014, 4:39 pm'),
+(584, 'file:///etc/passwd.js', 'file:///etc/passwd', 'July 15, 2014, 4:41 pm'),
+(585, 'file:///etc/passwd.js', '/../../../../../../../../../etc/passwd.js', 'July 15, 2014, 4:41 pm'),
+(586, 'file:///etc/passwd.js', '%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2Fet', 'July 15, 2014, 4:41 pm'),
+(587, 'file:///etc/passwd.js', '/../../../../../../../../../etc/passwd', 'July 15, 2014, 4:41 pm'),
+(588, 'file:///etc/passwd.js', 'file:%2F%2F%2Fetc%2Fhosts', 'July 15, 2014, 4:41 pm');
+INSERT INTO `downloads` (`id`, `email`, `file`, `date`) VALUES
+(589, 'file:///etc/passwd.js', 'file:///etc/hosts', 'July 15, 2014, 4:41 pm'),
+(590, 'file:///etc/passwd.js', '/../../../../../../../../../etc/hosts.js', 'July 15, 2014, 4:41 pm'),
+(591, 'file:///etc/passwd.js', '%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2Fet', 'July 15, 2014, 4:41 pm'),
+(592, 'file:///etc/passwd.js', '/../../../../../../../../../etc/hosts', 'July 15, 2014, 4:41 pm'),
+(593, 'file:///etc/passwd.js', 'file:///etc/hosts', 'July 15, 2014, 4:41 pm'),
+(594, '', '', 'July 15, 2014, 4:41 pm'),
+(595, 'dumvalue@example.com', '', 'July 15, 2014, 4:42 pm'),
+(596, '/../../../../../../../../WEB-INF/web.xml.js', '', 'July 15, 2014, 4:42 pm'),
+(597, '/../../../../../../../../WEB-INF/web.xml', '', 'July 15, 2014, 4:42 pm'),
+(598, '/../../../../../../../../WEB-INF/web.xml', '', 'July 15, 2014, 4:42 pm'),
+(599, '/../../../../../../../WEB-INF/web.xml.js', '', 'July 15, 2014, 4:42 pm'),
+(600, 'dumvalue@example.com', '', 'July 15, 2014, 4:42 pm'),
+(601, '/../../../../../../../WEB-INF/web.xml', '', 'July 15, 2014, 4:42 pm'),
+(602, 'dumvalue@example.com', '/../../../../../../../../WEB-INF/web.xml', 'July 15, 2014, 4:42 pm'),
+(603, 'dumvalue@example.com', '/../../../../../../../../WEB-INF/web.xml.js', 'July 15, 2014, 4:42 pm'),
+(604, 'dumvalue@example.com', '/../../../../../../../../WEB-INF/web.xml', 'July 15, 2014, 4:42 pm'),
+(605, 'dumvalue@example.com', '/../../../../../../../WEB-INF/web.xml.js', 'July 15, 2014, 4:42 pm'),
+(606, 'dumvalue@example.com', '/../../../../../../../WEB-INF/web.xml', 'July 15, 2014, 4:42 pm'),
+(607, 'dumvalue@example.com', '/../../../../../../../WEB-INF/web.xml', 'July 15, 2014, 4:42 pm'),
+(608, 'dumvalue@example.com', '/../../../../../../WEB-INF/web.xml.js', 'July 15, 2014, 4:42 pm'),
+(609, 'dumvalue@example.com', '/../../../../../../WEB-INF/web.xml', 'July 15, 2014, 4:42 pm'),
+(610, 'dumvalue@example.com', '/../../../../../WEB-INF/web.xml.js', 'July 15, 2014, 4:42 pm'),
+(611, 'dumvalue@example.com', '/../../../../../../WEB-INF/web.xml', 'July 15, 2014, 4:42 pm'),
+(612, 'dumvalue@example.com', '/../../../../../WEB-INF/web.xml', 'July 15, 2014, 4:42 pm'),
+(613, 'dumvalue@example.com', '/../../../../../WEB-INF/web.xml', 'July 15, 2014, 4:42 pm'),
+(614, 'dumvalue@example.com', '/../../../../WEB-INF/web.xml.js', 'July 15, 2014, 4:42 pm'),
+(615, 'dumvalue@example.com', '/../../../../WEB-INF/web.xml', 'July 15, 2014, 4:42 pm'),
+(616, 'dumvalue@example.com', '/../../../../WEB-INF/web.xml', 'July 15, 2014, 4:42 pm'),
+(617, 'dumvalue@example.com', '/../../../WEB-INF/web.xml.js', 'July 15, 2014, 4:42 pm'),
+(618, 'dumvalue@example.com', '/../../../WEB-INF/web.xml', 'July 15, 2014, 4:42 pm'),
+(619, 'dumvalue@example.com', '/../../../WEB-INF/web.xml', 'July 15, 2014, 4:42 pm'),
+(620, 'dumvalue@example.com', '/../../WEB-INF/web.xml.js', 'July 15, 2014, 4:42 pm'),
+(621, 'dumvalue@example.com', '/../../WEB-INF/web.xml', 'July 15, 2014, 4:42 pm'),
+(622, 'dumvalue@example.com', '/../../WEB-INF/web.xml', 'July 15, 2014, 4:42 pm'),
+(623, 'dumvalue@example.com', '/../WEB-INF/web.xml.js', 'July 15, 2014, 4:42 pm'),
+(624, 'file:///etc/passwd.js', '/../../../../../../../../../etc/hosts', 'July 15, 2014, 4:42 pm'),
+(625, 'dumvalue@example.com', '/../WEB-INF/web.xml', 'July 15, 2014, 4:42 pm'),
+(626, 'dumvalue@example.com', '/../WEB-INF/web.xml', 'July 15, 2014, 4:42 pm'),
+(627, 'dumvalue@example.com', 'file:///boot.ini', 'July 15, 2014, 4:42 pm'),
+(628, 'dumvalue@example.com', 'file:///boot.ini', 'July 15, 2014, 4:42 pm'),
+(629, 'dumvalue@example.com', '................oot.ini', 'July 15, 2014, 4:42 pm'),
+(630, 'dumvalue@example.com', '................oot.ini.js', 'July 15, 2014, 4:42 pm'),
+(631, 'dumvalue@example.com', '................oot.ini', 'July 15, 2014, 4:42 pm'),
+(632, 'dumvalue@example.com', '................oot.ini', 'July 15, 2014, 4:42 pm'),
+(633, 'dumvalue@example.com', 'file:///etc/passwd.js', 'July 15, 2014, 4:42 pm'),
+(634, 'dumvalue@example.com', 'file:%2F%2F%2Fetc%2Fpasswd', 'July 15, 2014, 4:42 pm'),
+(635, 'dumvalue@example.com', 'file:///etc/passwd', 'July 15, 2014, 4:42 pm'),
+(636, 'dumvalue@example.com', 'file:///etc/passwd', 'July 15, 2014, 4:42 pm'),
+(637, 'dumvalue@example.com', '/../../../../../../../../../etc/passwd.js', 'July 15, 2014, 4:42 pm'),
+(638, 'dumvalue@example.com', '%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2Fet', 'July 15, 2014, 4:42 pm'),
+(639, '', '', 'July 15, 2014, 4:42 pm'),
+(640, 'dumvalue@example.com', '/../../../../../../../../../etc/passwd', 'July 15, 2014, 4:42 pm'),
+(641, 'dumvalue@example.com', '/../../../../../../../../../etc/passwd', 'July 15, 2014, 4:42 pm'),
+(642, '', '', 'July 15, 2014, 4:42 pm'),
+(643, 'dumvalue@example.com', 'file:///etc/hosts', 'July 15, 2014, 4:42 pm'),
+(644, 'dumvalue@example.com', 'file:%2F%2F%2Fetc%2Fhosts', 'July 15, 2014, 4:42 pm'),
+(645, 'dumvalue@example.com', 'file:///etc/hosts.js', 'July 15, 2014, 4:42 pm'),
+(646, 'dumvalue@example.com', '%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2Fet', 'July 15, 2014, 4:42 pm'),
+(647, 'dumvalue@example.com', '/../../../../../../../../../etc/hosts.js', 'July 15, 2014, 4:42 pm'),
+(648, 'dumvalue@example.com', '/../../../../../../../../../etc/hosts', 'July 15, 2014, 4:42 pm'),
+(649, 'dumvalue@example.com', '/../../../../../../../../../etc/hosts', 'July 15, 2014, 4:42 pm'),
+(650, '/../../../../../../WEB-INF/web.xml.js', '', 'July 15, 2014, 4:42 pm'),
+(651, '/../../../../../../../WEB-INF/web.xml', '', 'July 15, 2014, 4:42 pm'),
+(652, '/../../../../../../WEB-INF/web.xml', '', 'July 15, 2014, 4:42 pm'),
+(653, '/../../../../../WEB-INF/web.xml.js', '', 'July 15, 2014, 4:42 pm'),
+(654, '/../../../../../../WEB-INF/web.xml', '', 'July 15, 2014, 4:42 pm'),
+(655, '/../../../../../WEB-INF/web.xml', '', 'July 15, 2014, 4:42 pm'),
+(656, '/../../../../../WEB-INF/web.xml', '', 'July 15, 2014, 4:42 pm'),
+(657, '/../../../../WEB-INF/web.xml.js', '', 'July 15, 2014, 4:42 pm'),
+(658, '/../../../../WEB-INF/web.xml', '', 'July 15, 2014, 4:42 pm'),
+(659, '/../../../WEB-INF/web.xml.js', '', 'July 15, 2014, 4:42 pm'),
+(660, '/../../../../WEB-INF/web.xml', '', 'July 15, 2014, 4:42 pm'),
+(661, '/../../../WEB-INF/web.xml', '', 'July 15, 2014, 4:42 pm'),
+(662, '/../../../WEB-INF/web.xml', '', 'July 15, 2014, 4:42 pm'),
+(663, '/../../WEB-INF/web.xml.js', '', 'July 15, 2014, 4:42 pm'),
+(664, '/../../WEB-INF/web.xml', '', 'July 15, 2014, 4:42 pm'),
+(665, '/../../WEB-INF/web.xml', '', 'July 15, 2014, 4:42 pm'),
+(666, '/../WEB-INF/web.xml.js', '', 'July 15, 2014, 4:42 pm'),
+(667, '/../WEB-INF/web.xml', '', 'July 15, 2014, 4:42 pm'),
+(668, '/../WEB-INF/web.xml', '', 'July 15, 2014, 4:42 pm'),
+(669, 'file:///boot.ini.js', '', 'July 15, 2014, 4:42 pm'),
+(670, 'file:%2F%2F%2Fboot.ini', '', 'July 15, 2014, 4:42 pm'),
+(671, 'file:///boot.ini', '', 'July 15, 2014, 4:42 pm'),
+(672, '', '', 'July 15, 2014, 4:42 pm'),
+(673, '................oot.ini.js', '', 'July 15, 2014, 4:42 pm'),
+(674, '', '', 'July 15, 2014, 4:42 pm'),
+(675, '................oot.ini', '', 'July 15, 2014, 4:42 pm'),
+(676, '', '', 'July 15, 2014, 4:42 pm'),
+(677, '', '', 'July 15, 2014, 4:42 pm'),
+(678, 'file:///etc/passwd.js', '', 'July 15, 2014, 4:42 pm'),
+(679, '', '', 'July 15, 2014, 4:42 pm');
 
 -- --------------------------------------------------------
 
@@ -664,7 +783,8 @@ INSERT INTO `downloads_files` (`filename`, `uploader`, `date`) VALUES
 ('The_Life-Giving_Team.GOM3_.pdf', 'mtotho@gmail.com', 'October 21, 2012, 2:55 pm'),
 ('TuckPaper.final_.pdf', 'mtotho@gmail.com', 'October 21, 2012, 2:56 pm'),
 ('Adaptability.pdf', 'mtotho@gmail.com', 'October 21, 2012, 3:13 pm'),
-('Koman_Wolff_Howard_EI_Culture_Chapter_Sep_9_061.pdf', 'mtotho@gmail.com', 'December 2, 2012, 11:46 pm');
+('Koman_Wolff_Howard_EI_Culture_Chapter_Sep_9_061.pdf', 'mtotho@gmail.com', 'December 2, 2012, 11:46 pm'),
+('Team_health_check.pdf', 'mtotho@gmail.com', 'April 2, 2014, 8:35 am');
 
 -- --------------------------------------------------------
 
@@ -779,7 +899,14 @@ INSERT INTO `download_userInfo` (`email`, `fname`, `lname`, `title`, `organizati
 ('kknee@nexiom.net', 'Kare', 'Knee', 'Team Leader ', 'Sobey', '705-875-1122'),
 ('info@margaretedwards.co.uk', 'Margaret', 'Edwards', 'Director', 'Providing thinking Space Ltd', '07949740343'),
 ('bh@barbarahealyassociates.com', 'Barbara', 'Healy', 'Principal', 'BHA', '2033140950'),
-('................oot.ini', '', '', 'See goo.gl/DJqlP for info', 'See goo.gl/DJqlP for info', '6505550100');
+('................oot.ini', '', '', 'See goo.gl/DJqlP for info', 'See goo.gl/DJqlP for info', '6505550100'),
+('rbkbateman@msn.com', 'Robert', 'Bateman', 'Sr Partner', 'STS', '9703728996'),
+('Fj', 'F', 'J', 'Mgr', 'C', '234'),
+('hg', 'h', 'g', 'c', 'n', ''),
+('robercanas@gmail.com', 'Roberto', 'Lopez', 'Psichologist', 'Mas', ''),
+('wuest@cwuest.com', 'Cornelia', 'Wuest', 'MD', 'C.Wuest & Partner', '+491724440548'),
+('george@gdi-assoc.com', 'George', 'Chewning', 'Managing Principal', 'GDI Associates, LLC', '6028821980'),
+('file:///etc/passwd.js', '', '', 'See goo.gl/DJqlP for info', 'See goo.gl/DJqlP for info', '6505550100');
 
 -- --------------------------------------------------------
 
@@ -807,7 +934,6 @@ CREATE TABLE IF NOT EXISTS `homepage_news` (
 --
 
 INSERT INTO `homepage_news` (`id`, `title`, `description_line`, `event_location`, `event_date`, `event_location2`, `event_date2`, `event_location3`, `event_date3`, `details_text`, `details_url`) VALUES
-(1, 'Facilitating Emotionally Intelligent Teamworking -- Accreditation Program', '', 'Boston, MA', '9/10 Dec, 2013', 'Manchester, UK', '11/12 Nov, 2013', '', '', 'Click here for details', 'http://www.eiworld.org/teamei/index.shtml'),
 (15, 'TEI Accreditations now elegible for 16.75 CCEUs', 'You can now get Continuing Education Credits when you attend a TEI Accreditation', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
@@ -907,6 +1033,78 @@ INSERT INTO `resource_journalArticles` (`id`, `article_type`, `citation_definiti
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `toolkit_fundamental`
+--
+
+CREATE TABLE IF NOT EXISTS `toolkit_fundamental` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `description` varchar(160) NOT NULL,
+  `short_description` varchar(40) NOT NULL,
+  `fk_category_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+
+--
+-- Dumping data for table `toolkit_fundamental`
+--
+
+INSERT INTO `toolkit_fundamental` (`id`, `name`, `description`, `short_description`, `fk_category_id`) VALUES
+(1, 'GOALS &amp; OBJECTIVES', 'Are understood, embraced, aligned and updated regularly ', 'what we do', 2),
+(2, 'ROLES &amp; RESPONSIBILITIES', 'Are explicit for all team members and key stakeholders, and interdependencies are clear', 'who does what', 2),
+(3, 'PROCESSES &amp; PROCEDURES', 'Project planning, operational methods, and communication pathways are clear', 'how we execute', 2),
+(4, 'RELATIONSHIPS', 'Are grounded in a genuine desire to understand and trust each other to enhance performance', 'how we work together', 2),
+(5, 'LEADERSHIP', 'Leader provides clear direction, solves problems proactively, manages stakeholders, coaches and builds the team.', 'how our leader leads the team', 2),
+(6, 'EXTERNAL ENVIRONMENT', 'Team proactively aligns with stakeholders. Stakeholders provide direction, information and support.', 'how we impact, or are effected by others', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `toolkit_tool`
+--
+
+CREATE TABLE IF NOT EXISTS `toolkit_tool` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(40) NOT NULL,
+  `description` varchar(150) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+
+--
+-- Dumping data for table `toolkit_tool`
+--
+
+INSERT INTO `toolkit_tool` (`id`, `name`, `description`) VALUES
+(1, 'Team Charter', 'To create agreement on how the team will work together to make binding decisions and share accountability for meeting project goals and objectives.'),
+(4, 'sample tool', 'sample descriptions'),
+(5, 'yea ''''''''''''''''''yea ''''''''''''''''''ddds', 'sample description derp'),
+(10, 'Tool Name', 'Tool Description');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `toolkit_tool2fundamental`
+--
+
+CREATE TABLE IF NOT EXISTS `toolkit_tool2fundamental` (
+  `fk_fundamental_id` int(11) NOT NULL,
+  `fk_tool_id` int(11) NOT NULL,
+  PRIMARY KEY (`fk_fundamental_id`,`fk_tool_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `toolkit_tool2fundamental`
+--
+
+INSERT INTO `toolkit_tool2fundamental` (`fk_fundamental_id`, `fk_tool_id`) VALUES
+(1, 1),
+(1, 4),
+(1, 5),
+(1, 10);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -915,7 +1113,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(64) NOT NULL,
   `salt` varchar(3) NOT NULL,
   PRIMARY KEY (`email`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`

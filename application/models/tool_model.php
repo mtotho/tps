@@ -39,7 +39,9 @@ class Tool_model extends CI_Model{
 						fk_tool_id=?";
 		$this->db->query($query2, array($tool['fundamental_id'], $tool_id));
 
+		$tool['id']=$tool_id;
 
+		return $tool;
 	}
 
 	function deleteTool($tool_id){

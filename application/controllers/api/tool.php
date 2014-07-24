@@ -22,7 +22,7 @@ class Tool extends REST_Controller {
 
 		$tool = $this->post("tool");
 
-		$this->tool_model->newTool($tool);
+		$new_tool = $this->tool_model->newTool($tool);
 //
 		//error_log(print_r($tool, true));
 		//print_r($tool);
@@ -30,7 +30,7 @@ class Tool extends REST_Controller {
 		//$tooldescription=$tool['description'];
 		//$fundamental_id =$tool['fundamental_id'];
 //		
-		$this->response($this->tool_model->getByFundamentalId($tool['fundamental_id']));
+		$this->response($new_tool);
 	}
 
 	public function index_put(){

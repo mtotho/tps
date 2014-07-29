@@ -36,11 +36,11 @@ $(document).ready(function(){
 	<div class="left_navigation">
 			<div class="padding">	
 		
-				<h3><a href="<?echo URL?>toolkit/tools">Toolkit</a></h3>
+				<h3><a href="<?echo site_url()?>toolkit/tools">Toolkit</a></h3>
 				<ul>
-					<li><a class='green_theme' href="<?php echo URL ?>toolkit/tools?page=1">Starting Your Team</a></li>
-					<li><a class='blue_theme' href="<?php echo URL ?>toolkit/tools?page=2">Developing Your Team</a></li>
-					<li><a class='purple_theme' href="<?php echo URL ?>toolkit/tools?page=3">Assessing Your Team</a></li>
+					<li><a class='green_theme' href="<?php echo site_url() ?>toolkit/tools?page=1">Starting Your Team</a></li>
+					<li><a class='blue_theme' href="<?php echo site_url() ?>toolkit/tools?page=2">Developing Your Team</a></li>
+					<li><a class='purple_theme' href="<?php echo site_url() ?>toolkit/tools?page=3">Assessing?? Your Team</a></li>
 					<!--<li><a href="<?echo URL ?>toolkit?page=2">Specific Elsai Teams: IPT, Regulatory, Clinical</a></li>
 					<li><a href="<?echo URL ?>toolkit?page=3">Starting/Reinvigorating a Team</a></li>
 					<li><a href="<?echo URL ?>toolkit?page=4">Team Building Essentials</a></li>

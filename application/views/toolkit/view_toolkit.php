@@ -36,7 +36,7 @@ $(document).ready(function(){
 	<div class="left_navigation">
 			<div class="padding">	
 		
-				<h3><a href="<?echo site_url()?>toolkit/tools">Toolkit</a></h3>
+				<h3><a href="<?echo site_url() ?>toolkit/tools">Tools Toolkit now with more tools</a></h3>
 				<ul>
 					<li><a class='green_theme' href="<?php echo site_url() ?>toolkit/tools?page=1">Starting Your Team</a></li>
 					<li><a class='blue_theme' href="<?php echo site_url() ?>toolkit/tools?page=2">Developing Your Team</a></li>

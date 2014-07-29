@@ -63,6 +63,14 @@ p{
 	height:auto;
 	margin: 20px 0 10px 0;
 }
+
+.lnkLogin, .lnkLogout{
+	float:right;
+	margin-right:0.5em;
+	font-size:0.8em;
+	cursor:pointer;
+	color:green;
+}
 /*
  * end: Globals
  */
@@ -255,6 +263,7 @@ table tr td{
 header{
 	width:1000px;
 	height:100px;
+	background-color:white;
 }
 #imgHeaderLogo{
 	float:left;
@@ -601,9 +610,12 @@ footer p{
 #toolkit_landing{
 	background-color:#E5E5E5;
 }
+#container.fundamental_container{
+	background-color:#E5E5E5;
+}
 
 .card_tile{
-	background:#FFFFFF;
+	background-color:white;
 	margin:0 0 1em 0;
 	padding:0.5em;
 	border-radius: 2px;
@@ -623,9 +635,28 @@ footer p{
 
 }
 .card_tile a{
+
 	float:right;
 	cursor:pointer;
 	margin-left:1em;
+	font-size:0.8em;
+	text-decoration:underline;
+}
+.card_tile a.lnkEdit{
+	color:green;
+}
+.card_tile a.lnkCancel, .card_tile a.lnkNewCancel{
+	color:green;
+}
+.card_tile a.lnkSave, .card_tile a.lnkNewSave{
+	color:blue;
+}
+.card_tile a.lnkDelete{
+	color:red;
+}
+#lnkNewTool{
+	float:left;
+	cursor:pointer;
 }
 .card_tile img{
 	width: 1.5em;
@@ -647,6 +678,7 @@ footer p{
 #toolkit_fundamental{
 	margin-top:-20px;
 	background-color:#E5E5E5;
+	min-height:100%;
 }
 #toolkit_fundamental .padding{
 	padding:1em 1em 1em 1em;
@@ -654,7 +686,16 @@ footer p{
 #toolkit_fundamental h2{
 	font-size: 1.3em;
 	font-weight:normal;
+	margin-bottom:0.5em;
+
+}
+#fundamental_description{
+	text-indent:1em;
+	color:#4693D4;
 	margin-bottom:1em;
+}
+#fundamental_description span{
+	color:black;
 }
 #toolkit_fundamental h2 span{
 	color:blue;
@@ -670,12 +711,9 @@ footer p{
 a.green_theme{
 	color:green;
  }
-
-#lnkNewTool{
-	width:3em;
-	cursor:pointer;
+a.purple_theme{
+	color:purple;
 }
-
 #toolkit .left_navigation{
 	width:25%;	
 }
@@ -718,8 +756,9 @@ a.green_theme{
 	color:white;
 	height: 2.6em;
 	font-size:1.25em;
+	line-height:2.2em;
 	text-align:center;
-	width: 12em;
+	width: 16em;
 	border: 1px solid #4673A2;
 	margin-bottom:1em;
 }
@@ -728,12 +767,17 @@ a.green_theme{
 	border: 1px solid #8FB7DB;
 	cursor:pointer;
 }
-
-
+.fundamental_short_desc{
+	font-size:1em;
+	margin:1.3em 3em 0 0;
+	float:right;
+	font-style:italic;
+}
+/*
 #toolkit #tf4, #toolkit #tf5{
 	line-height:2.2em;
 }
-
+*/
 #toolkit .fundamentals .padding{
 	padding: 0.2em 0.5em 0.2em 0.5em;
 }

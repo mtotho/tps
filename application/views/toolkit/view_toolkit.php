@@ -1,3 +1,36 @@
+<script>
+$(document).ready(function(){
+
+	var cat_id=2;
+
+	window.API.getFundamentals(cat_id,function(data){
+
+		var html="";
+		for(var i =0; i<data.length; i++){
+			var fundamental = data[i];
+			html+="<p class='fundamental_short_desc'>"+fundamental.short_description+"</p>";
+			html+="<div id='tf"+fundamental.id+"' data-name='"+fundamental.id+"' class='fundamentals'>";
+			html+=	"<div class='padding'>";
+			html+=		fundamental.name;
+			html+="	</div>";
+
+			html+="</div>";
+
+		}
+		$("#fundamentals").html(html);
+	});
+
+
+	$(document).on('click', '.fundamentals',function(){
+		var fundamental_id = $(this).attr("data-name");
+
+		window.location="tools/"+fundamental_id;
+	})
+});
+
+
+</script>
+
 <div id="toolkit">
 
 	<div class="left_navigation">
@@ -7,7 +40,7 @@
 				<ul>
 					<li><a class='green_theme' href="<?php echo URL ?>toolkit/tools?page=1">Starting Your Team</a></li>
 					<li><a class='blue_theme' href="<?php echo URL ?>toolkit/tools?page=2">Developing Your Team</a></li>
-					<li><a href="<?echo URL ?>toolkit/tools?page=3">Assessing Your Team</a></li>
+					<li><a class='purple_theme' href="<?php echo URL ?>toolkit/tools?page=3">Assessing Your Team</a></li>
 					<!--<li><a href="<?echo URL ?>toolkit?page=2">Specific Elsai Teams: IPT, Regulatory, Clinical</a></li>
 					<li><a href="<?echo URL ?>toolkit?page=3">Starting/Reinvigorating a Team</a></li>
 					<li><a href="<?echo URL ?>toolkit?page=4">Team Building Essentials</a></li>
@@ -128,9 +161,11 @@
 				<p><?php echo $page_description ?></p>
 				
 				
+				<div id="fundamentals">
 
+				</div>
 				<?php 
-				echo $content;
+				//echo $content;
 /*
 				foreach($buttons as $button){
 					$btnId = $button['id'];

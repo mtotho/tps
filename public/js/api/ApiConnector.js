@@ -171,6 +171,35 @@ function ApiConnector(){
         window.API.pushApiData(jsonString, url, querytype, callback);
     }
 
+    //--fundamental
+    ApiConnector.prototype.getFundamentals = function getFundamentals(cat_id, callback){
+        var url="/fundamental?cat_id="+cat_id;
+        window.API.pullApiData(url, "GET", callback);
+    }
+
+    // -- user
+    ApiConnector.prototype.newUser = function newUser(user, callback){
+        var url="/user";
+        var querytype = "POST";
+        var json = user;
+        var jsonString = JSON.stringify(json);
+        window.API.pushApiData(jsonString, url, querytype, callback);
+    }
+
+    ApiConnector.prototype.authenticate = function authenticate(user, callback){
+        var url="/authentication";
+        var querytype = "POST";
+        var json = user;
+        var jsonString = JSON.stringify(json);
+        window.API.pushApiData(jsonString, url, querytype, callback);
+    }
+
+
+
+
+
+
+
 
 
 

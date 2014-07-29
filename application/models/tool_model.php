@@ -14,7 +14,14 @@ class Tool_model extends CI_Model{
 
 		$raw = $this->db->query($query, array($fundamental_id));
 
-		return $raw->result_array();
+		$query2 = "select * from toolkit_fundamental where id = ?";
+		$raw2 = $this->db->query($query2, array($fundamental_id));
+
+		$results = array();
+		$results['tools'] = $raw->result_array();
+		$results['fundamental']=$raw2->row();
+
+		return $results;
 	}
 
 	function updateTool($tool){

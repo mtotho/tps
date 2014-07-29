@@ -1,8 +1,4 @@
-$(function(){
-	window.site_url = $("#site_url").attr("data-url");
-	window.API = new ApiConnector();
-	window.Helper = new Helper();
-});
+
 
 $(document).ready(function(){
 

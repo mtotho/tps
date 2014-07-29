@@ -2,9 +2,9 @@
 
 class Home extends CI_Controller{
 	
-	public $js = array('public/js/home/fadeslideshow.js',
-					   'public/js/home/slideshowconfig.js'
-						);
+	//public $js = array('public/js/home/fadeslideshow.js',
+					//   'public/js/home/slideshowconfig.js'
+				//		);
 	
 	public $data = array(
 					"page_title" => "Team Performance Solutions - Harnessing the Power of Teams"

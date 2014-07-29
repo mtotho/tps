@@ -8,25 +8,33 @@
 	
 	<title><?php echo $this->data['page_title']?></title>
 	
-	<link rel="stylesheet" href="<?php echo site_url("public/css/mainstyle.css") ?>" />
 	<link rel="stylesheet" href="<?php echo site_url("public/js/fancyBox/source/jquery.fancybox.css?v=2.1.0") ?>" />
 	
 	<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>-->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	
-	<?php if($this->jqueryUI == true){ ?>		
+
+
+
+	<link rel="stylesheet" href="<?php echo site_url("public/css/mainstyle.css") ?>" />
+	
 	
 	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
 	<!--<link type="text/css" href="<?php echo site_url("public/css/ui-lightness/jquery-ui-1.10.4.custom.css") ?>" rel="Stylesheet" />-->
 	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
 			
-	<?php } ?>
+
 	
 	<script type="text/javascript" src="<?php echo site_url("public/js/fancyBox/source/jquery.fancybox.pack.js?v=2.1.0") ?>"></script>
 	<!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 	
+	<script type="text/javascript" src="<?php echo site_url('public/js/api/Helper.js') ?>"></script>
+	<script type="text/javascript" src="<?php echo site_url('public/js/api/ApiConnector.js') ?>"></script>				
+	<script type="text/javascript" src="<?php echo site_url('public/js/site.js') ?>"></script>
+	
+
 	<?php
 		if(isset($this->js)){
 			
@@ -35,8 +43,8 @@
 			}
 		}
 	 
-	?>	
-	
+	?>
+
 </head>
 <body>	
 	<div id="container">
@@ -49,6 +57,7 @@
 		
 		
 		<header>
+			<div id="authPanel"></div>
 			<a href="/"><img id="imgHeaderLogo" src="<?php echo site_url("public/images/headerLogo.png") ?>" alt="Team Performance Solutions"  border="none"/></a> 
             <h1>Team Performance Solutions&trade;</h1>
             <h2>Harnessing the power of teams</h2>

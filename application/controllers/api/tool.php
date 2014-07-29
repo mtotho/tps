@@ -38,6 +38,7 @@ class Tool extends REST_Controller {
 
 		$tool=$this->put("tool");
 
+		error_log(print_r($tool,true));
 		//error_log(print_r($tool,true));
 		$this->tool_model->updateTool($tool);
 

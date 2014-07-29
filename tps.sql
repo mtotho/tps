@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.8.1deb1
+-- version 4.0.10deb1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 23, 2014 at 04:36 PM
--- Server version: 5.5.34-0ubuntu0.13.04.1
--- PHP Version: 5.4.9-4ubuntu2.4
+-- Generation Time: Jul 29, 2014 at 01:55 PM
+-- Server version: 5.5.38-0ubuntu0.14.04.1
+-- PHP Version: 5.5.9-1ubuntu4.3
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -1067,18 +1067,18 @@ CREATE TABLE IF NOT EXISTS `toolkit_tool` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(40) NOT NULL,
   `description` varchar(150) NOT NULL,
+  `file` blob NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `toolkit_tool`
 --
 
-INSERT INTO `toolkit_tool` (`id`, `name`, `description`) VALUES
-(1, 'Team Charter', 'To create agreement on how the team will work together to make binding decisions and share accountability for meeting project goals and objectives.'),
-(4, 'sample tool', 'sample descriptions'),
-(5, 'yea ''''''''''''''''''yea ''''''''''''''''''ddds', 'sample description derp'),
-(10, 'Tool Name', 'Tool Description');
+INSERT INTO `toolkit_tool` (`id`, `name`, `description`, `file`) VALUES
+(1, 'Team Charter', 'To create agreement on how the team will work together to make binding decisions and share accountability for meeting project goals and objectives.', ''),
+(4, 'sample tool', 'sample descriptionsasdasdas', ''),
+(5, 'Tool Name', 'Tool Description', '');
 
 -- --------------------------------------------------------
 
@@ -1099,8 +1099,29 @@ CREATE TABLE IF NOT EXISTS `toolkit_tool2fundamental` (
 INSERT INTO `toolkit_tool2fundamental` (`fk_fundamental_id`, `fk_tool_id`) VALUES
 (1, 1),
 (1, 4),
-(1, 5),
-(1, 10);
+(2, 5);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `toolkit_user`
+--
+
+CREATE TABLE IF NOT EXISTS `toolkit_user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(50) NOT NULL,
+  `hash_pass` varchar(256) NOT NULL,
+  `salt` varchar(10) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `toolkit_user`
+--
+
+INSERT INTO `toolkit_user` (`id`, `email`, `hash_pass`, `salt`) VALUES
+(2, 'admin@teamperformancesolutions.com', '6c021f715919641565cde051bcc9b986ebbc58b1a1140da6d6718413e9f1aa05', 'fcbf17a8ad');
 
 -- --------------------------------------------------------
 

@@ -346,7 +346,7 @@ $html="";
 		</div>
 		<div id="newToolLnk"></div>
 		<div style="clear:both"></div>
-		<a id='backtotop' href='<?php echo URL ?>toolkit/tools?page=2'>Back to Fundamentals</a>
+		<a id='backtotop' href='<?php echo site_url('toolkit/tools?page=2') ?>'>Back to Fundamentals</a>
 		
 
 	</div>

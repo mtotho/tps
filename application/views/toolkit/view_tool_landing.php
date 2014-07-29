@@ -48,7 +48,7 @@
 			<h3>Team Tools Toolkit Overview</h3>
 			<hr />
 			
-			<a href="<?php echo URL ?>toolkit/tools">Go to Toolkit</a>
+			<a href="<?php echo site_url() ?>toolkit/tools">Go to Toolkit</a>
 	 		<br />
 	 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis, nisl eu convallis vestibulum, tellus neque rhoncus sem, vel hendrerit nulla ligula quis neque. Phasellus ornare vestibulum egestas. Curabitur a ligula malesuada, pharetra tortor nec, facilisis elit. Nam sed mattis diam, sit amet malesuada nisi. Maecenas magna est, volutpat sit amet fermentum ac, fringilla lobortis nibh. Etiam vitae metus sagittis, dictum nibh vel, sollicitudin lorem. Aliquam id dictum erat.</p>
 			<p>Nunc venenatis accumsan massa, quis aliquam felis condimentum luctus. Aliquam eget rutrum libero. Ut convallis mi vitae cursus eleifend. Phasellus condimentum porttitor enim, vel adipiscing nisl varius a. Vestibulum mattis purus lorem, et ultricies diam rutrum vel. Fusce porta est mauris, nec consequat ante luctus non. Aliquam a placerat augue, auctor adipiscing lectus. Integer adipiscing lorem velit. Vestibulum at malesuada purus, non facilisis nulla. Pellentesque posuere lacus tellus, eget vulputate lacus scelerisque vestibulum.</p>

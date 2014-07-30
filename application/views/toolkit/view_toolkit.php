@@ -15,8 +15,8 @@ $(document).ready(function(){
 			html+="	</div>";
 
 			html+="</div>";
-
 		}
+		
 		$("#fundamentals").html(html);
 	});
 
@@ -84,44 +84,6 @@ $(document).ready(function(){
 						$page_description="Click on a Fundamental below to view sample Tools. This page may include other instructional information";
 
 
-						$content="
-							
-								<div id='fundamentals'>
-									<img src='".URL."public/images/resources/TeamFundamentals_text.png' />
-									<div id='tf1' data-name='1' class='fundamentals'>
-										<div class='padding'>
-											GOALS &amp; OBJECTIVES
-										</div>
-									</div>
-									<div id='tf2'  data-name='2' class='fundamentals'>
-										<div class='padding'>
-											ROLES &amp; RESPONSIBILITIES
-										</div>
-									</div>
-									<div id='tf3'  data-name='3' class='fundamentals'>
-										<div class='padding'>
-											PROCESSES &amp; PROCEDURES
-										</div>
-									</div>
-									<div id='tf4' data-name='4' class='fundamentals'>
-										<div class='padding'>
-											RELATIONSHIPS
-										</div>
-									</div>
-									<div id='tf5' data-name='5' class='fundamentals'>
-										<div class='padding'>
-											LEADERSHIP
-										</div>
-									</div>
-									<div id='tf6' data-name='6' class='fundamentals'>
-										<div class='padding'>
-											EXTERNAL ENVIRONMENT
-										</div>
-									</div>
-									<div style='clear:both'></div>
-								</div>
-								";
-
 
 						break;
 					case 3:
@@ -140,21 +102,9 @@ $(document).ready(function(){
 
 					
 
-/*
-
-						$btn =  array();
-						$btn['id']=2;
-						$btn['text'] = "This is a tool button. Clicking it will show tools in this category";
-						$buttons[]=$btn;
-
-						$btn2 =  array();
-						$btn2['id']=3;
-						$btn2['text'] = "This is a another tool button. Clicking it will show tools in a different category";
-						$buttons[]=$btn2;*/
 						break;
 				}
 
-			//	echo $content;
 				?>
 
 				<h3><?php echo $page_title ?></h3>
@@ -164,24 +114,7 @@ $(document).ready(function(){
 				<div id="fundamentals">
 
 				</div>
-				<?php 
-				//echo $content;
-/*
-				foreach($buttons as $button){
-					$btnId = $button['id'];
-					$btnText = $button['text'];
-
-					echo "<div class='tool_button' data-id='".$btnId."'>";
-					echo 	"<div class='padding'>";
-					echo 		"<p>".$btnText."</p>";
-					echo 	"</div>";
-					echo "</div>";
-
-				}
-*/
-
-				?>
-
+		
 
 		<div id="dialog"></div>				
 		</div><!--end padding-->

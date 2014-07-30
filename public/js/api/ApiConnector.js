@@ -140,6 +140,7 @@ function ApiConnector(){
 
     ApiConnector.prototype.getTools = function getTools(fundamental_id, callback){
         var url="/tool?fundamental_id="+fundamental_id;
+                    
         window.API.pullApiData(url, "GET", callback);
     }
 
@@ -171,6 +172,32 @@ function ApiConnector(){
         window.API.pushApiData(jsonString, url, querytype, callback);
     }
 
+    ApiConnector.prototype.uploadFile = function uploadFile(filedata){
+        var url = this.BASE + "/upload";
+
+        var xhr = new XMLHttpRequest();
+        xhr.file = filedata; // not necessary if you create scopes like this
+        xhr.addEventListener('progress', function(e) {
+            var done = e.position || e.loaded, total = e.totalSize || e.total;
+            console.log('xhr progress: ' + (Math.floor(done/total*1000)/10) + '%');
+        }, false);
+        if ( xhr.upload ) {
+            xhr.upload.onprogress = function(e) {
+                var done = e.position || e.loaded, total = e.totalSize || e.total;
+                console.log('xhr.upload progress: ' + done + ' / ' + total + ' = ' + (Math.floor(done/total*1000)/10) + '%');
+            };
+        }
+        xhr.onreadystatechange = function(e) {
+            if ( 4 == this.readyState ) {
+                console.log(['xhr upload complete', e]);
+            }
+        };
+        xhr.open('post', url, true);
+        xhr.send(filedata);
+
+
+    }
+
     //--fundamental
     ApiConnector.prototype.getFundamentals = function getFundamentals(cat_id, callback){
         var url="/fundamental?cat_id="+cat_id;
@@ -193,6 +220,7 @@ function ApiConnector(){
         var jsonString = JSON.stringify(json);
         window.API.pushApiData(jsonString, url, querytype, callback);
     }
+
 
 
 
@@ -543,6 +571,9 @@ function ApiConnector(){
             userObj['token'] = window.USER.userToken;
             postObj["players"] = players;
             postObj["user"] = userObj;
+        //tool.file = card_tile.find("[type='file']").val();
+
+        //console.log(tool.file);
 
 
             var jsonString = JSON.stringify(postObj);

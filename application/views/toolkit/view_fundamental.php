@@ -32,8 +32,10 @@ function ToolHandler(div){
 	$(document).on('change','input[type=file]',function(event){
 		var tool_id = $(this).attr("data-id"); //id for specific tool
 		var tool = instance.tools[tool_id];
-		tool.fileinput = event.target.files[0];
-
+		var file = this.files[0];
+		//console.log(file);
+		tool.fileinput = file;//event.target.files[0];
+		console.log(event.target.result);
 		instance.tools[tool_id]=tool;
 	});
 
@@ -95,55 +97,14 @@ function ToolHandler(div){
 		tool.name = card_tile.find("[name='txtToolName']").val();
 		tool.description = card_tile.find("textarea").val();
 
-
-		//tool.file = card_tile.find("[type='file']").val();
-
-		//console.log(tool.file);
-	    var ajaxData = new FormData();
-
-	   // ajaxData.append( 'action', 'ajax_handler_import' );
-	   //ajaxData.append( '_ajax_nonce', importNonce );
-	    // or maybe skip the nonce for now
-
-	   //jQuery.each($("[type='file']")[0].files, function(i, file) {
-	     //   ajaxData.append('file-'+i, file);
-	  //  });
-	   // console.log($("[type='file']")[0].files[0]);
-	    ajaxData.append("file",tool.fileinput);
-	    tool.file = ajaxData;
-	    //ajaxData.append("title", "derp");
-	   // console.log(ajaxData);
-	    
-	    console.log(tool);
-	    //tool.file=$("[type='file']")[0].files[0];
-	    /*
-		var file = document.getElementById('file-'+tool_id).files[0];
-	  	if (file) {
-	        // create reader
-	        var reader = new FileReader();
-	        reader.readAsText(file);
-	        reader.onload = function(e) {
-	            // browser completed reading file - display it
-	            alert(e.target.result);
-        };*
-    }*/
-	/*
-		$(card_tile.find("[type='file']")).fileReaderJS({
-			readAsDefault:"DataURL",
-
-			on:{
-				load: function(e, file){
-					console.log(file);
-				}
-			}
-
-		});
-	
-*/
-		
+		//upload file
+		var fd = new FormData;
+		fd.append('file', tool.fileinput);
+		fd.append('tool_id',tool.id);
 		instance.tools[tool.id]=tool;
+		window.API.uploadFile(fd);
 
-
+		//update tool
 		window.API.putTool(tool, function(){
 			instance.paint();
 		});

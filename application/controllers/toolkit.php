@@ -3,7 +3,7 @@
 class Toolkit extends CI_Controller {
 
 	public $jqueryUI = true;
-	public $js = array('public/js/api/filereader.js','public/js/toolkit/toolkit.js');
+	public $js = array('public/js/toolkit/toolkit.js');
 	public $data = array(
 					"page_title" => "Team Performance Solutions - Team Development Toolkit"
 					

@@ -106,6 +106,7 @@ function ApiConnector(){
                 },
                 error: function(xhr, errorType, error){
                     alert("error when trying to initialize connection to the api");
+                    console.log(xhr);
                     switch(xhr.status){
                         case 500:
                             // internal server error
@@ -196,6 +197,25 @@ function ApiConnector(){
         xhr.send(filedata);
 
 
+    }
+
+    ApiConnector.prototype.getFile = function getFile(file_id,callback){
+       
+        var url="/upload?file_id="+file_id;
+                    
+        window.API.pullApiData(url, "GET", callback);
+        /*var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function(){
+            if (this.readyState == 4 && this.status == 200){
+                //this.response is what you're looking for
+              
+                callback(this.response);
+               
+            }
+        }
+        xhr.open('GET', window.site_url+"api/upload?file_id="+file_id+"&format=json");
+        xhr.responseType = 'blob';
+        xhr.send();  */ 
     }
 
     //--fundamental

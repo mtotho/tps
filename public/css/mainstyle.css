@@ -625,6 +625,7 @@ footer p{
 	margin-bottom:0.5em;
 	text-indent:2em;
 }
+
 .card_tile h3{
 	size:1.5em;
 	font-weight:normal;
@@ -673,6 +674,12 @@ footer p{
 .card_tile textarea{
 	width: 100%;
 	font-size:1.25em;
+}
+.card_tile p.edit{
+	font-family:"Lucida Console";	
+}
+.file-metadata{
+	color:green;
 }
 
 #toolkit_fundamental{

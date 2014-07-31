@@ -16,12 +16,12 @@ function ToolHandler(div){
 	//get the list of tools and populate the array. paint the tools when done
 	window.API.getTools(window.fundamental_id, function(data){
 		var dbtools = data.tools;
-		
+
 		for(var i=0; i<dbtools.length; i++){
 			var tool = dbtools[i];
 			instance.tools[tool.id]=tool;
 		}
-
+		console.log(instance.tools);
 		instance.fundamental = data.fundamental;
 		
 		instance.paint();
@@ -29,13 +29,24 @@ function ToolHandler(div){
 		instance.init();
 	});
 
+	//file input change: converts file into base64 dataurl and stores info into tool
 	$(document).on('change','input[type=file]',function(event){
 		var tool_id = $(this).attr("data-id"); //id for specific tool
 		var tool = instance.tools[tool_id];
 		var file = this.files[0];
-		//console.log(file);
-		tool.fileinput = file;//event.target.files[0];
-		console.log(event.target.result);
+
+		//tool.new_file_name=file.name;
+	 	var FR= new FileReader();
+        FR.onload = function(e) {
+            var split = e.target.result.split(",");
+           	tool.new_file ={
+           		"name":file.name,
+           		"type":split[0],
+           		"base64":split[1]
+           	};
+        };       
+        FR.readAsDataURL( this.files[0] );
+        
 		instance.tools[tool_id]=tool;
 	});
 
@@ -55,8 +66,11 @@ function ToolHandler(div){
 	
 		tile_html+=	"<hr />";
 		tile_html+=	"<textarea name='txtToolDescription'>" + tool.description + "</textarea>";
-
 		tile_html+=	"<hr />";
+		tile_html+=	"<p class='edit'>Current file: <span class='file-metadata'>" + tool.file_name+"</span></p>";
+		tile_html+=	"<p class='edit'>Upload date: <span class='file-metadata'>" + tool.upload_date+"</span></p>"; 
+		tile_html+=	"<hr />";
+		tile_html+= "<label for='file-"+tool.id+"'>New File: </label>"
 		tile_html+=	"<input name='file' id='file-"+tool.id+"' type='file' data-id='"+tool.id+"' />";
 		
 		card_tile.html(tile_html);
@@ -97,15 +111,10 @@ function ToolHandler(div){
 		tool.name = card_tile.find("[name='txtToolName']").val();
 		tool.description = card_tile.find("textarea").val();
 
-		//upload file
-		var fd = new FormData;
-		fd.append('file', tool.fileinput);
-		fd.append('tool_id',tool.id);
-		instance.tools[tool.id]=tool;
-		window.API.uploadFile(fd);
 
-		//update tool
-		window.API.putTool(tool, function(){
+		//update tool and replace js tool with updated tool from database.
+		window.API.putTool(tool, function(updated_tool){
+			instance.tools[tool.id]=updated_tool;
 			instance.paint();
 		});
 	});//end: lnkSave click 
@@ -176,7 +185,45 @@ function ToolHandler(div){
 		
 		}
 	});
+	var saveData = (function () {
+    	var a = document.createElement("a");
+	    document.body.appendChild(a);
+	    a.style = "display: none";
+	    return function (data, fileName) {
+	        var json = JSON.stringify(data),
+	            blob = new Blob([json], {type: "octet/stream"}),
+	            url = window.URL.createObjectURL(blob);
+	        a.href = url;
+	        a.download = fileName;
+	        a.click();
+	        window.URL.revokeObjectURL(url);
+	    };
+	}());
+
+	//Tool download link
+	$(document).on("click", ".tool_link", function(){
+		var tool_id = $(this).attr("data-id"); 
+		var tool = instance.tools[tool_id];
+		//console.log(tool);
+		if(!window.Helper.isNull(tool.file_name)){
+
+			var confirm = window.confirm('Clicking okay will start the download of file: ' + tool.file_name);
+			if(confirm){
+				window.API.getFile(tool.file_id, function(file){	
+					
+					   	var pom = document.createElement('a');
+					    pom.setAttribute('href', file.type+","+file.base64);
+					    pom.setAttribute('download', file.name);
+					    pom.click();
+				
+				});
+			}
+		}else{
+			alert("no file");
+		}
+	});
 }
+
 
 ToolHandler.prototype.init = function init(){
 	
@@ -196,7 +243,7 @@ ToolHandler.prototype.paint = function paint(){
 
 		toolhtml+="<div class='card_tile' data-tool_id='"+tool.id+"'>";
 
-		toolhtml+=	"<h3>" + tool.name + "</h3>";
+		toolhtml+=	"<h3 class='tool_link' data-id='"+tool.id+"'>" + tool.name + "</h3>";
 	
 		toolhtml+=	"<hr />";
 		toolhtml+=	"<p>" + tool.description + "</p>";
@@ -264,19 +311,6 @@ $(document).ready(function(){
 	
 
 
-
-	var user ={
-		"user":{
-			"email":"admin@teamperformancesolutions.com",
-			"password":"tps123"
-		}
-
-	} 
-		
-	
-	window.API.authenticate(user,function(data){
-		console.log(data);
-	})
 
 });
 </script>

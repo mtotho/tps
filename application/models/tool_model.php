@@ -43,10 +43,10 @@ class Tool_model extends CI_Model{
 		$this->db->query($query, array($tool['name'], $tool['description'], $tool['id']));
 
 		
-		if(isset($tool['new_file'])){
-			$this->load->model("file_model");
-			$this->file_model->post_file($tool['new_file'], $tool['id']);
-		}
+		//if(isset($tool['new_file'])){
+		//	$this->load->model("file_model");
+		//	$this->file_model->post_file($tool['new_file'], $tool['id']);
+		//}
 	}
 
 	function newTool($tool){

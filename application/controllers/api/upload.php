@@ -20,8 +20,10 @@ class Upload extends REST_Controller {
 
 		$this->load->model('file_model');
 		$file = $_FILES['file'];
-		error_log(print_r($file,true));
+		//error_log(print_r($file,true));
 		$this->file_model->upload_file($file, $tool_id);
+
+		$this->response("success");
 
 	
 	}

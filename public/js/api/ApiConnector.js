@@ -45,6 +45,7 @@ function ApiConnector(){
                 },
                 error: function(xhr, errorType, error){
                     // alert("error when trying to initialize connection to the api");
+                    console.log(xhr);
                     switch(xhr.status){
                         case 500:
                             // internal server error
@@ -173,9 +174,10 @@ function ApiConnector(){
         window.API.pushApiData(jsonString, url, querytype, callback);
     }
 
-    ApiConnector.prototype.uploadFile = function uploadFile(filedata){
+    ApiConnector.prototype.uploadFile = function uploadFile(filedata, callback){
         var url = this.BASE + "/upload";
 
+        /*
         var xhr = new XMLHttpRequest();
         xhr.file = filedata; // not necessary if you create scopes like this
         xhr.addEventListener('progress', function(e) {
@@ -195,7 +197,41 @@ function ApiConnector(){
         };
         xhr.open('post', url, true);
         xhr.send(filedata);
+        console.log(xhr);*/
 
+        $.ajax({
+        url: window.site_url+'api/upload',
+        type: 'POST',
+        data: filedata,
+        cache: false,
+        dataType: 'json',
+        processData: false, // Don't process the files
+        contentType: false, // Set content type to false as jQuery will tell the server its a query string request
+        success: function(data, textStatus, jqXHR)
+        {   
+             callback();
+            if(typeof data.error === 'undefined')
+            {
+                // Success so call function to process the form
+               
+            }
+            else
+            {
+
+                // Handle errors here
+                console.log('ERRORS: ' + data.error);
+            }
+        },
+        error: function(jqXHR, textStatus, errorThrown)
+        {
+             console.log(jqXHR);
+          
+          
+            // Handle errors here
+            console.log('ERRORS: ' + textStatus);
+            // STOP LOADING SPINNER
+        }
+    });
 
     }
 

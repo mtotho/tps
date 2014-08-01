@@ -36,7 +36,7 @@ function ToolHandler(div){
 		var file = this.files[0];
 
 		//tool.new_file_name=file.name;
-	 	var FR= new FileReader();
+	 /*	var FR= new FileReader();
         FR.onload = function(e) {
             var split = e.target.result.split(",");
            	tool.new_file ={
@@ -46,7 +46,19 @@ function ToolHandler(div){
            	};
         };       
         FR.readAsDataURL( this.files[0] );
-        
+*/
+        new_file =event.target.files[0];
+       console.log(new_file);
+        var fd = new FormData();
+        fd.append("file",new_file);
+        fd.append("tool_id",tool.id);
+        tool.new_file ={
+           		"name":new_file.name,
+           		"type":new_file.type,
+           		"blob":fd
+           	};
+   
+
 		instance.tools[tool_id]=tool;
 	});
 
@@ -111,12 +123,22 @@ function ToolHandler(div){
 		tool.name = card_tile.find("[name='txtToolName']").val();
 		tool.description = card_tile.find("textarea").val();
 
+		//If
+		if(!window.Helper.isNull(tool.new_file)){
+			   	window.API.uploadFile(tool.new_file.blob,function(){		
+
+   			 	});
+		}
 
 		//update tool and replace js tool with updated tool from database.
 		window.API.putTool(tool, function(updated_tool){
 			instance.tools[tool.id]=updated_tool;
 			instance.paint();
 		});
+
+		//console.log(tool.new_file.blob);
+
+	
 	});//end: lnkSave click 
 
 	//lnkNewTool click function
@@ -190,8 +212,8 @@ function ToolHandler(div){
 	    document.body.appendChild(a);
 	    a.style = "display: none";
 	    return function (data, fileName) {
-	        var json = JSON.stringify(data),
-	            blob = new Blob([json], {type: "octet/stream"}),
+	       var json = JSON.stringify(data),
+	            blob = new Blob(data, {type: "octet/stream"}),
 	            url = window.URL.createObjectURL(blob);
 	        a.href = url;
 	        a.download = fileName;
@@ -209,14 +231,21 @@ function ToolHandler(div){
 
 			var confirm = window.confirm('Clicking okay will start the download of file: ' + tool.file_name);
 			if(confirm){
-				window.API.getFile(tool.file_id, function(file){	
-					
-					   	var pom = document.createElement('a');
-					    pom.setAttribute('href', file.type+","+file.base64);
-					    pom.setAttribute('download', file.name);
-					    pom.click();
 				
-				});
+
+				//window.API.getFile(tool.file_id, function(file){	
+					
+				//window.location.href=window.site_url + "api/download/"+tool.file_id;
+				
+					//saveData(file.base64, file.name);
+				 var pom = document.createElement('a');
+				   //	console.log(btoa(file.base64));
+				 pom.setAttribute('href', window.site_url + "api/download/file/"+tool.file_id);
+				   //window.location.href="data:application/octet-stream;charset=utf-8;base64"+","+file.base64;
+				 pom.setAttribute('download', tool.file_name);
+				 pom.click();
+				
+			//});
 			}
 		}else{
 			alert("no file");

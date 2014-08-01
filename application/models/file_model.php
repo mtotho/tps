@@ -11,21 +11,25 @@ class File_model extends CI_Model{
 		$filename=$file['name'];
 		$tmpname =$file['tmp_name'];
 		$type = $file['type'];
+		$size = $file['size'];
+		error_log(print_r($file,true));
 
 		$fp = fopen($tmpname,'r');
 		$content = fread($fp, filesize($tmpname));
-		$content = addslashes($content);
+		//$content = addslashes($content);
 		fclose($fp);
-
-		if(!get_magic_quotes_gpc()){
-   			 $filename = addslashes($filename);
-		}
+		//error_log($content);
+		//if(!get_magic_quotes_gpc()){
+   			// $filename = addslashes($filename);
+		//}
 
 		$query = "insert into toolkit_file set 
 					name=?,
 					data=?,
-					type=?";
-		$this->db->query($query, array($filename, $content, $type));
+					type=?,
+					size=?,
+					upload_date=NOW()";
+		$this->db->query($query, array($filename,$content, $type, $size));
 
 		$file_id = $this->db->insert_id();
 

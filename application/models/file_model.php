@@ -12,7 +12,9 @@ class File_model extends CI_Model{
 		$tmpname =$file['tmp_name'];
 		$type = $file['type'];
 		$size = $file['size'];
-		error_log(print_r($file,true));
+
+
+
 
 		$fp = fopen($tmpname,'r');
 		$content = fread($fp, filesize($tmpname));
@@ -23,15 +25,36 @@ class File_model extends CI_Model{
    			// $filename = addslashes($filename);
 		//}
 
-		$query = "insert into toolkit_file set 
-					name=?,
-					data=?,
-					type=?,
-					size=?,
-					upload_date=NOW()";
-		$this->db->query($query, array($filename,$content, $type, $size));
+		//Check to see if file already exists
+		$query = "select * from toolkit_file where name=?";
+		$result = $this->db->query($query,array($filename));
+		
+		$content_md5=md5($content);
+		$file_id=null;
+		if($result->num_rows()>0){
+			$results = $result->result_array();
+			foreach($results as $matching_file){
+				if($content_md5==md5($matching_file['data'])){
+					$file_id=$matching_file['id'];
+					break;
+				}
+				
+			}
+		}
 
-		$file_id = $this->db->insert_id();
+		if($file_id==null){
+			$query = "insert into toolkit_file set 
+						name=?,
+						data=?,
+						type=?,
+						size=?,
+						upload_date=NOW()";
+			$this->db->query($query, array($filename,$content, $type, $size));
+
+			$file_id = $this->db->insert_id();
+		}
+
+
 
 		if($tool_id!=null){
 			$query2 = "update toolkit_tool set file_id=? where id=?";

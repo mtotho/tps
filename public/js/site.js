@@ -12,6 +12,9 @@ $(document).ready(function(){
 
 	var authcookie = window.Helper.readCookie("tps-auth-cookie");
 
+	//debug
+	authcookie=1;
+
 	if(window.Helper.isNull(authcookie)){
 		$("#authPanel").html("<a class='lnkLogin'>login</a>");
 		window.valid_user = false;

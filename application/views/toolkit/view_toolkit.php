@@ -1,7 +1,7 @@
 <script>
 $(document).ready(function(){
 
-	var cat_id=2;
+	var cat_id=parseInt(window.Helper.getParameterByName("page"));
 
 	window.API.getFundamentals(cat_id,function(data){
 
@@ -20,11 +20,36 @@ $(document).ready(function(){
 		$("#fundamentals").html(html);
 	});
 
+	var title="Toolkit Landing";
+	var description="Content may go here";
+
+	switch(cat_id){
+		case 1:
+			$("#fundamental_title").addClass("green_theme");
+			title = "Starting Your Team <span style='color:black'>- Fundamentals</span>";
+			description = "Click on a Fundamental below to view sample Tools. This page may include other instructional information";
+			break;
+
+		case 2:
+			$("#fundamental_title").addClass("blue_theme");
+			title="Developing Your Team <span style='color:black'>- Fundamentals</span>";
+			description= "Click on a Fundamental below to view sample Tools. This page may include other instructional information";
+			break;
+
+		case 3:
+			$("#fundamental_title").addClass("purple_theme");
+			title="Assessing Your Team <span style='color:black'>- Fundamentals</span>";
+			description= "Click on a Fundamental below to view sample Tools. This page may include other instructional information";
+			break;
+	}
+	
+	$("#fundamental_title").html(title);
+	$("#fundamental_description").html(description);
 
 	$(document).on('click', '.fundamentals',function(){
 		var fundamental_id = $(this).attr("data-name");
 
-		window.location="tools/"+fundamental_id;
+		window.location="tools/"+fundamental_id+"?ref="+cat_id;
 	})
 });
 
@@ -36,11 +61,11 @@ $(document).ready(function(){
 	<div class="left_navigation">
 			<div class="padding">	
 		
-				<h3><a href="<?echo site_url() ?>toolkit/tools">Tools Toolkit now with more tools</a></h3>
+				<h3><a href="<?php echo site_url() ?>toolkit/tools">Team Toolkit</a></h3>
 				<ul>
 					<li><a class='green_theme' href="<?php echo site_url() ?>toolkit/tools?page=1">Starting Your Team</a></li>
 					<li><a class='blue_theme' href="<?php echo site_url() ?>toolkit/tools?page=2">Developing Your Team</a></li>
-					<li><a class='purple_theme' href="<?php echo site_url() ?>toolkit/tools?page=3">Assessing?? Your Team</a></li>
+					<li><a class='purple_theme' href="<?php echo site_url() ?>toolkit/tools?page=3">Assessing Your Team</a></li>
 					<!--<li><a href="<?echo URL ?>toolkit?page=2">Specific Elsai Teams: IPT, Regulatory, Clinical</a></li>
 					<li><a href="<?echo URL ?>toolkit?page=3">Starting/Reinvigorating a Team</a></li>
 					<li><a href="<?echo URL ?>toolkit?page=4">Team Building Essentials</a></li>
@@ -58,6 +83,8 @@ $(document).ready(function(){
 	<div class="right_content">
 		<div class="padding">
 				<?php
+
+				/*
 				$page_title="Team Tools Toolkit landing page";
 				$page_description="";
 				$buttons = array(); //array of "id"->1, "text"->"button text"
@@ -76,7 +103,7 @@ $(document).ready(function(){
 						/*$btnTemp=array();
 						$btnTemp['id']=1;
 						$btnTemp['text']="Convincing Senior Management and Team Leaders to Invest Time in Team Development Activities";
-						$buttons[]=$btnTemp;*/
+						$buttons[]=$btnTemp;*//*
 						break;
 					case 2:
 
@@ -102,13 +129,13 @@ $(document).ready(function(){
 
 					
 
-						break;
-				}
+						break;*/
+				//}
 
 				?>
 
-				<h3><?php echo $page_title ?></h3>
-				<p><?php echo $page_description ?></p>
+				<h3 id='fundamental_title'></h3>
+				<p id='fundamental_description'></p>
 				
 				
 				<div id="fundamentals">

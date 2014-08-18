@@ -697,8 +697,7 @@ footer p{
 
 }
 #fundamental_description{
-	text-indent:1em;
-	color:#4693D4;
+	color:black;
 	margin-bottom:1em;
 }
 #fundamental_description span{
@@ -751,7 +750,20 @@ a.purple_theme{
 #toolkit .right_content h3{
 	font-size:1.5em;
 	margin-bottom:0.25em;
-	color:#2668AC;
+	color:black;
+}
+#toolkit .right_content h3.green_theme{
+	color:green;
+}
+#toolkit .right_content h3.blue_theme{
+	color: #6284a3;
+
+}
+#toolkit .right_content h3.purple_theme{
+	color:purple;
+}
+#toolkit .right_conrent h3 span{
+	color:black;
 }
 #toolkit .right_content p{
 	margin-bottom:0.4em;

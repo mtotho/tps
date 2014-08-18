@@ -755,41 +755,54 @@ a.purple_theme{
 #toolkit .right_content h3.green_theme{
 	color:green;
 }
-#toolkit .right_content h3.blue_theme{
+#toolkit .right_content .blue_theme{
 	color: #6284a3;
-
 }
-#toolkit .right_content h3.purple_theme{
+#toolkit .right_content .purple_theme{
 	color:purple;
 }
-#toolkit .right_conrent h3 span{
+#toolkit .right_content h3 span{
 	color:black;
 }
 #toolkit .right_content p{
-	margin-bottom:0.4em;
+	margin-bottom:1em;
 }
 
+#toolkit .fundamental_container{
+	width:100%;
+	height:2.6em;
+	margin-bottom:2em;
+}
 #toolkit .fundamentals{
 	background:#36689A;
 	font-weight: bold;
 	color:white;
-	height: 2.6em;
+	height: 54px;
 	font-size:1.25em;
 	line-height:2.2em;
 	text-align:center;
 	width: 16em;
 	border: 1px solid #4673A2;
-	margin-bottom:1em;
+	margin-right:0em;
+
+	float:left;
 }
 #toolkit .fundamentals:hover{
 	background:#6FABDE;
 	border: 1px solid #8FB7DB;
 	cursor:pointer;
 }
+#fundamentals .short_desc_container{
+	float:left;
+	height:50px;
+	background:#D3D3D3;
+	line-height:50px;
+	margin:3px 0 3px 0;
+	padding:0 8px 0  8px;
+
+}
 .fundamental_short_desc{
 	font-size:1em;
-	margin:1.3em 3em 0 0;
-	float:right;
 	font-style:italic;
 }
 /*
@@ -798,7 +811,7 @@ a.purple_theme{
 }
 */
 #toolkit .fundamentals .padding{
-	padding: 0.2em 0.5em 0.2em 0.5em;
+	padding: 4px 6px 4px 6px;
 }
 #toolkit #fundamentals img{
 	float:right;

@@ -8,16 +8,22 @@ $(document).ready(function(){
 		var html="";
 		for(var i =0; i<data.length; i++){
 			var fundamental = data[i];
-			html+="<p class='fundamental_short_desc'>"+fundamental.short_description+"</p>";
-			html+="<div id='tf"+fundamental.id+"' data-name='"+fundamental.id+"' class='fundamentals'>";
-			html+=	"<div class='padding'>";
-			html+=		fundamental.name;
-			html+="	</div>";
-
+			html+="<div class='fundamental_container'>";
+		
+			html+="		<div id='tf"+fundamental.id+"' data-name='"+fundamental.id+"' class='fundamentals'>";
+			html+=	"		<div class='padding'>";
+			html+=				fundamental.name;
+			html+="			</div>";
+			html+="		</div>";
+			html+="     <div class='short_desc_container'>";
+			html+="			<p class='fundamental_short_desc'>"+fundamental.short_description+"</p>";
+			html+="		</div>";
+			html+="<div style='clear:both'></div>";
 			html+="</div>";
 		}
 		
 		$("#fundamentals").html(html);
+
 	});
 
 	var title="Toolkit Landing";
@@ -26,18 +32,21 @@ $(document).ready(function(){
 	switch(cat_id){
 		case 1:
 			$("#fundamental_title").addClass("green_theme");
+			$(".fundamentals").addClass("green_theme");
 			title = "Starting Your Team <span style='color:black'>- Fundamentals</span>";
 			description = "Click on a Fundamental below to view sample Tools. This page may include other instructional information";
 			break;
 
 		case 2:
 			$("#fundamental_title").addClass("blue_theme");
+			$(".fundamentals").addClass("blue_theme");
 			title="Developing Your Team <span style='color:black'>- Fundamentals</span>";
 			description= "Click on a Fundamental below to view sample Tools. This page may include other instructional information";
 			break;
 
 		case 3:
 			$("#fundamental_title").addClass("purple_theme");
+			$(".fundamentals").addClass("purple_theme");
 			title="Assessing Your Team <span style='color:black'>- Fundamentals</span>";
 			description= "Click on a Fundamental below to view sample Tools. This page may include other instructional information";
 			break;

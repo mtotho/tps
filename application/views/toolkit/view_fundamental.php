@@ -26,7 +26,7 @@ $html="";
 
 	<h2 id="fundamental_title"></h2>
 	<p id="fundamental_description"></p>
-	
+	<p class='avail_tool'>Available tools</p>
 	
 	<div id="tools_div">
 		

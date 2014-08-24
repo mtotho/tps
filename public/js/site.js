@@ -52,6 +52,8 @@ function auto_resize(){
 	//footer
 	if(window_h>(container_h+30)){
 		$("footer").height(window_h-container_h);
+	}else{
+		$("footer").css("height", "3em")
 	}
 
 

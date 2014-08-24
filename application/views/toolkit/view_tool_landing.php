@@ -1,3 +1,10 @@
+<script>
+$(document).ready(function(){
+	$(".toolkit_go").click(function(){
+		window.location = window.site_url + "toolkit/tools";
+	});
+});
+</script>
 <div id="toolkit_landing">
 	<a name=""></a>
 	<div class='row'>
@@ -51,8 +58,8 @@
 				<h3>Team Tools Toolkit Overview</h3>
 				<hr />
 
-				<button type="button" class="btn btn-default btn-lg">
-					<a href="<?php echo site_url() ?>toolkit/tools">Go to Toolkit <span class="glyphicon glyphicon-play"></span></a>
+				<button type="button" class="btn toolkit_go btn-default btn-lg">
+					Go to Toolkit <span class="glyphicon glyphicon-play"></span></a>
 				</button>
 				
 		 		<br />

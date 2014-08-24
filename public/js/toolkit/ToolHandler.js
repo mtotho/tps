@@ -65,7 +65,7 @@ function ToolHandler(div){
 		
 		var tool_id = $(this).attr("data-id"); //id for specific tool
 		var tool = instance.tools[tool_id];	   //get entire tool from instance array
-
+		console.log("tool_id: " + tool_id);
 		var card_tile = $("[data-tool_id='"+tool_id+"']"); //select the card tile html object
 
 		var tile_html = "";
@@ -90,6 +90,7 @@ function ToolHandler(div){
 		tile_html+=	"<input name='file' id='file-"+tool.id+"' type='file' data-id='"+tool.id+"' />";
 		
 		card_tile.html(tile_html);
+		auto_resize();
 	});
 	
 	//lnkDelete(): when user clicks the delete link while editing a tool
@@ -100,7 +101,9 @@ function ToolHandler(div){
 		//console.log(confirm);
 		if(confirm){
 			window.API.deleteTool(tool_id, function(){
-				instance.tools.splice(tool_id,1);
+				//instance.tools.splice(tool_id,1);
+				instance.tools[tool_id]=-1;
+				console.log(instance.tools);
 				instance.paint();
 			});
 		}
@@ -152,12 +155,16 @@ function ToolHandler(div){
 		var uid = Math.round(1000*Math.random());
 
 		var html="";
-		html+="<div class='card_tile new_tool' data-uid='"+uid+"'>";
-		html+=  "<a class='lnkNewCancel' data-uid='"+uid+"' >cancel</a>";
-		html+=  "<a class='lnkNewSave' data-uid='"+uid+"'>save</a>";
-		html+=	"<input type='text' name='txtToolName' value= 'Tool Name' />";
-
-		html+=	"<hr />";
+		html+="<div class='row card_tile new_tool' data-uid='"+uid+"'>";
+		html+=	"<div class='row'>";
+		html+=		"<div class='col-md-6 left_col'>";
+		html+=			"<input type='text' name='txtToolName' value= 'Tool Name' />";
+		html+= 		"</div>";
+		html+=		"<div class='col-md-6 right_col'>";
+		html+=  		"<a class='edit_func lnkNewCancel' data-uid='"+uid+"' >cancel</a>";
+		html+=  		"<a class='edit_func lnkNewSave' data-uid='"+uid+"'>save</a>";
+		html+= 		"</div>";
+		html+=	"</div>";
 		html+=	"<textarea name='txtToolDescription'>Tool Description</textarea>";
 		html+="</div>";
 
@@ -272,23 +279,25 @@ ToolHandler.prototype.paint = function paint(){
 	//Loop over all the tools, build the html for the card then add to pagehtml
 	for(var key in this.tools){
 		var tool = this.tools[key];
+		if(tool!=-1){
 		var toolhtml="";
 
-		toolhtml+="<div class='row card_tile' data-tool_id='"+tool.id+"'>";
-		toolhtml+=	"<div class='row'>";
-		toolhtml+=		"<div class='col-md-6 left_col'>";
-		toolhtml+=			"<span class='glyphicon glyphicon-download'></span><h3 class='tool_link' data-id='"+tool.id+"'>" + tool.name + "</h3>";
-		toolhtml+=		"</div>";
-		toolhtml+=		"<div class='col-md-6 right_col'>";
-		toolhtml+=		"</div>";
-		toolhtml+="	</div>";
+			toolhtml+="<div class='row card_tile' data-tool_id='"+tool.id+"'>";
+			toolhtml+=	"<div class='row'>";
+			toolhtml+=		"<div class='col-md-6 left_col'>";
+			toolhtml+=			"<span class='glyphicon glyphicon-download'></span><h3 class='tool_link' data-id='"+tool.id+"'>" + tool.name + "</h3>";
+			toolhtml+=		"</div>";
+			toolhtml+=		"<div class='col-md-6 right_col'>";
+			toolhtml+=		"</div>";
+			toolhtml+="	</div>";
+			
+			toolhtml+=	"<p>" + tool.description + "</p>";
+			toolhtml+="</div>";
 
-		toolhtml+=	"<p>" + tool.description + "</p>";
-		toolhtml+="</div>";
+					//toolhtml+=	"<hr />";
 
-				//toolhtml+=	"<hr />";
-
-		allhtml+=toolhtml;
+			allhtml+=toolhtml;
+		}
 	}
 
 	this.div.html(allhtml);
@@ -320,6 +329,8 @@ ToolHandler.prototype.paint = function paint(){
 		this.setEditMode(true);
 	}
 
+	auto_resize();
+
 
 }
 
@@ -329,7 +340,7 @@ ToolHandler.prototype.setEditMode = function setEditMode(boolean){
 	if(boolean==true){
 		this.div.find(".card_tile").each(function(index){
 			var tool_id = $(this).attr("data-tool_id");
-			$(this).find(".row .right_col").append("<a class='lnkEdit' data-id='"+ tool_id +"'>edit</a>");
+			$(this).find(".row .right_col").append("<a class='edit_func lnkEdit' data-id='"+ tool_id +"'>edit</a>");
 		});
 
 		var newLnkHtml="";

@@ -129,7 +129,11 @@ footer p{
 		text-indent:3em;
 		font-style:italic;
 
-		margin-bottom:3em;
+		margin-bottom:2em;
+	}
+	#toolkit_fundamental .avail_tool{
+		margin-bottom:0.5em;
+		font-weight:bold;
 	}
 	.card_tile:nth-child(2n){
 		background:white;
@@ -138,7 +142,7 @@ footer p{
 		background:#F0F0F0;
 	}
 	.card_tile{
-		padding:1em 0.5em 1em 0.5em;
+		padding:1.5em 1em 1.5em 1em;
 		margin:0 0 0 0;
 	}
 	.card_tile p{

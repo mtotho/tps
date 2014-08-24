@@ -11,9 +11,9 @@ $(document).ready(function(){
 			html+="<div class='fundamental_container'>";
 		
 			html+="		<div id='tf"+fundamental.id+"' data-name='"+fundamental.id+"' class='fundamentals'>";
-			html+=	"		<div class='padding'>";
+			//html+=	"		<div class='padding'>";
 			html+=				fundamental.name;
-			html+="			</div>";
+			//html+="			</div>";
 			html+="		</div>";
 			html+="     <div class='short_desc_container'>";
 			html+="			<p class='fundamental_short_desc'>"+fundamental.short_description+"</p>";
@@ -24,6 +24,7 @@ $(document).ready(function(){
 		
 		$("#fundamentals").html(html);
 
+		auto_resize();
 	});
 
 	var title="Toolkit Landing";
@@ -33,21 +34,21 @@ $(document).ready(function(){
 		case 1:
 			$("#fundamental_title").addClass("green_theme");
 			$(".fundamentals").addClass("green_theme");
-			title = "Starting Your Team <span style='color:black'>- Fundamentals</span>";
+			title = "<span class='label label-default'>Starting Your Team</span>";
 			description = "Click on a Fundamental below to view sample Tools. This page may include other instructional information";
 			break;
 
 		case 2:
 			$("#fundamental_title").addClass("blue_theme");
 			$(".fundamentals").addClass("blue_theme");
-			title="Developing Your Team <span style='color:black'>- Fundamentals</span>";
+			title="<span class='label label-default'>Developing Your Team</span>";
 			description= "Click on a Fundamental below to view sample Tools. This page may include other instructional information";
 			break;
 
 		case 3:
 			$("#fundamental_title").addClass("purple_theme");
 			$(".fundamentals").addClass("purple_theme");
-			title="Assessing Your Team <span style='color:black'>- Fundamentals</span>";
+			title="<span class='label label-default'>Assessing Your Team</span>";
 			description= "Click on a Fundamental below to view sample Tools. This page may include other instructional information";
 			break;
 	}
@@ -67,28 +68,39 @@ $(document).ready(function(){
 
 <div id="toolkit">
 
-	<div class="left_navigation">
-			<div class="padding">	
-		
-				<h3><a href="<?php echo site_url() ?>toolkit/tools">Team Toolkit</a></h3>
-				<ul>
+	<div class="row">
+		<div class="col-md-3 left_col">
+
+			<h3><a href="<?php echo site_url() ?>toolkit/tools">Team Toolkit</a></h3>
+			<ul class="nav">
 					<li><a class='green_theme' href="<?php echo site_url() ?>toolkit/tools?page=1">Starting Your Team</a></li>
 					<li><a class='blue_theme' href="<?php echo site_url() ?>toolkit/tools?page=2">Developing Your Team</a></li>
 					<li><a class='purple_theme' href="<?php echo site_url() ?>toolkit/tools?page=3">Assessing Your Team</a></li>
-					<!--<li><a href="<?echo URL ?>toolkit?page=2">Specific Elsai Teams: IPT, Regulatory, Clinical</a></li>
-					<li><a href="<?echo URL ?>toolkit?page=3">Starting/Reinvigorating a Team</a></li>
-					<li><a href="<?echo URL ?>toolkit?page=4">Team Building Essentials</a></li>
-					<li><a href="<?echo URL ?>toolkit?page=5">Team Assessments &amp; Lessons Learned</a></li>
-					<li><a href="<?echo URL ?>toolkit?page=6">Team Emotional Intelligence</a></li>-->
-					<!--<li><a href="<?echo URL ?>toolkit?page=7">Generic Tool</a></li>-->
+			</ul>
+		</div>
 
+		<div class="col-md-9 right_col">
+			<h3 id='fundamental_title'></h3>
+			<p id='fundamental_description'></p>
+			
+			
+			<div id="fundamentals">
 
-				</ul>
+			</div>
+		</div>
+	</div>
+
+	<!--
+
+	<div class="left_navigation">
+			<div class="padding">	
+		
+				
 				
 
 			</div><!--end padding-->
-		</div><!--end left_navigation-->
-		
+<!--		</div><!--end left_navigation-->
+	<!--	
 	<div class="right_content">
 		<div class="padding">
 				<?php
@@ -143,18 +155,12 @@ $(document).ready(function(){
 
 				?>
 
-				<h3 id='fundamental_title'></h3>
-				<p id='fundamental_description'></p>
-				
-				
-				<div id="fundamentals">
-
-				</div>
+			
 		
-
+			
 		<div id="dialog"></div>				
-		</div><!--end padding-->
+		</div>end padding-->
 		
-	</div><!--end right_content-->
+	<!--</div>end right_content-->
 
 </div>

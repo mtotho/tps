@@ -13,7 +13,7 @@ $(document).ready(function(){
 	var authcookie = window.Helper.readCookie("tps-auth-cookie");
 
 	//debug
-	authcookie=1;
+	//authcookie=1;
 
 	if(window.Helper.isNull(authcookie)){
 		$("#authPanel").html("<a class='lnkLogin'>login</a>");
@@ -24,6 +24,11 @@ $(document).ready(function(){
 		window.admin_user = true;
 	}
 
+	auto_resize();
+});
+
+$(window).resize(function(){
+	auto_resize();
 });
 
 $(document).on("click", ".lnkLogin", function(){
@@ -34,3 +39,20 @@ $(document).on("click", ".lnkLogout", function(){
 	window.Helper.eraseCookie("tps-auth-cookie");
 	window.location= window.site_url;
 });
+
+
+function auto_resize(){
+	//gather heights:
+	var container_h = $(".container").outerHeight();
+	var window_h = $(window).height()-7;
+
+	console.log(container_h);
+	console.log(window_h);
+
+	//footer
+	if(window_h>(container_h+30)){
+		$("footer").height(window_h-container_h);
+	}
+
+
+}

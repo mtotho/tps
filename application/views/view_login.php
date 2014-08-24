@@ -30,13 +30,26 @@ $(document).ready(function(){
 
 </script>
 
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+  	<form style="margin:5em 0 5em 0;" role="form">
+  		<div class="form-group">
+			<label for="txtEmail">Email </label>
+			<input id="txtEmail" class="form-control"  type="email" placeholder="Enter email">
+		 </div>
 
-<label for="txtEmail">Email </label>
-<input id="txtEmail" type="text" />
+		<div class="form-group">
+			<label for="txtPassword">Password </label>
+			<input id="txtPassword" class="form-control" type="password" placeholder="Password">
+		</div>
+		
+		<input type="button" id="btnLogin" value="login" />
+	</form>
 
-<br /><br />
-<label for="txtPassword">Password </label>
-<input id="txtPassword" type="password" />
+  </div>
+  <div class="col-md-4"></div>
+</div>
 
-<br />
-<input type="button" id="btnLogin" value="login" />
+
+

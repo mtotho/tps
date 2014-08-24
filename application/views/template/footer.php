@@ -1,8 +1,16 @@
 			<div style="clear:both"></div>
 		</div><!--end content-->
 		<div class="clearfooter"></div>
+
+
 	</div><!--end container-->
-		
+	
+
+		<footer class='container-fluid'>
+			<p class='center-block'>|&nbsp; &copy;2012 Team Performance Solutions&trade;. All Rights Reserved.  &nbsp;|</p>
+		</footer>	
+	
+
 	<script type='text/javascript'>
 				  var _gaq = _gaq || [];
 		  _gaq.push(['_setAccount', 'UA-29735961-1']);
@@ -17,8 +25,6 @@
 				
 	</script>
 		
-	<footer>
-		<p>|&nbsp; &copy;2012 Team Performance Solutions&trade;. All Rights Reserved.  &nbsp;|</p>
-	</footer>	
+
 </body>
 </html>

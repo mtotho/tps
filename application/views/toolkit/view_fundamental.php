@@ -7,7 +7,8 @@ $(document).ready(function(){
 
 	var referer = window.Helper.getParameterByName("ref");
 
-	$("#backtotop").attr("href", window.site_url + "toolkit/tools?page="+referer);
+	//set backtotop link to send to previous page
+	$(".back_to_top").attr("href", window.site_url + "toolkit/tools?page="+referer);
 });
 </script>
 
@@ -22,23 +23,24 @@ $html="";
 
 ?>
 <div id='toolkit_fundamental'>
-	<div class='padding'>
 
-		<h2 id="fundamental_title"></h2>
-		<p id="fundamental_description"></p>
+	<h2 id="fundamental_title"></h2>
+	<p id="fundamental_description"></p>
+	
+	
+	<div id="tools_div">
 		
-		
-		<div id="tools_div">
-			
-		</div>
-		<div id="dev_toggle" class="card_tile">
-		
-
-		</div>
-		<div id="newToolLnk"></div>
-		<div style="clear:both"></div>
-		<a id='backtotop' href='#'>Back to Fundamentals</a>
-		
+	</div>
+	<hr />
+	<a class='back_to_top' href='#'>Back to Fundamentals</a>
+	<div id="dev_toggle">
+	
 
 	</div>
+	<div id="newToolLnk"></div>
+	<div style="clear:both"></div>
+	
+	
+
+
 </div>

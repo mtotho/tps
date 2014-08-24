@@ -69,17 +69,23 @@ function ToolHandler(div){
 		var card_tile = $("[data-tool_id='"+tool_id+"']"); //select the card tile html object
 
 		var tile_html = "";
-		tile_html+=  "<a class='lnkCancel' data-id='"+tool.id+"' >cancel</a>";
-		tile_html+=  "<a class='lnkDelete' data-id='"+ tool.id +"'>delete</a>";
-		tile_html+=  "<a class='lnkSave' data-id='"+ tool.id +"'>save</a>";
-		tile_html+=	"<input type='text' name='txtToolName' value= \"" +htmlEncode(tool.name)+ "\" />";
+		tile_html+=	"<div class='row'>";
+		tile_html+=		"<div class='col-md-6 left_col'>";
+		tile_html+=			"<input type='text' name='txtToolName' value= \"" +tool.name+ "\" />";
+		tile_html+=		"</div>";
+		tile_html+=		"<div class='col-md-6 right_col'>";
+		tile_html+=  		"<a class='edit_func cancel' data-id='"+tool.id+"' >cancel</a>";
+		tile_html+= 		"<a class='edit_func delete' data-id='"+ tool.id +"'>delete</a>";
+		tile_html+=  		"<a class='edit_func save' data-id='"+ tool.id +"'>save</a>";
+		tile_html+=		"</div>";
+		tile_html+="</div>";
 	
-		tile_html+=	"<hr />";
+		//tile_html+=	"<hr />";
 		tile_html+=	"<textarea name='txtToolDescription'>" + tool.description + "</textarea>";
-		tile_html+=	"<hr />";
+		//tile_html+=	"<hr />";
 		tile_html+=	"<p class='edit'>Current file: <span class='file-metadata'>" + tool.file_name+"</span></p>";
 		tile_html+=	"<p class='edit'>Upload date: <span class='file-metadata'>" + tool.upload_date+"</span></p>"; 
-		tile_html+=	"<hr />";
+		//tile_html+=	"<hr />";
 		tile_html+= "<label for='file-"+tool.id+"'>New File: </label>"
 		tile_html+=	"<input name='file' id='file-"+tool.id+"' type='file' data-id='"+tool.id+"' />";
 		
@@ -87,7 +93,7 @@ function ToolHandler(div){
 	});
 	
 	//lnkDelete(): when user clicks the delete link while editing a tool
-	$(document).on("click", ".lnkDelete", function(){
+	$(document).on("click", ".delete", function(){
 		var tool_id = $(this).attr("data-id"); 
 
 		var confirm = window.confirm("Are you sure you would like to delete this tool?");
@@ -101,7 +107,7 @@ function ToolHandler(div){
 	});	
 	
 	//lnkDelete(): when user clicks the delete link while editing a tool
-	$(document).on("click", ".lnkCancel", function(){
+	$(document).on("click", ".cancel", function(){
 		var tool_id = $(this).attr("data-id"); 
 
 		var confirm = window.confirm("Are you sure you would like to cancel editing? You will lose any changes.");
@@ -111,7 +117,7 @@ function ToolHandler(div){
 		}
 	});	
 	//lnkSave click(): when user saves changes to a tool
-	$(document).on("click", ".lnkSave", function(){
+	$(document).on("click", ".save", function(){
 		
 		var tool_id = $(this).attr("data-id"); 
 		var tool = instance.tools[tool_id];
@@ -254,8 +260,8 @@ function ToolHandler(div){
 
 ToolHandler.prototype.init = function init(){
 	
-	$("#fundamental_title").html(this.fundamental.name);
-	$("#fundamental_description").html("<span>&gt; </span>"+this.fundamental.description);
+	$("#fundamental_title").html("<span class='label label-default'>"+this.fundamental.name+"</span>");
+	$("#fundamental_description").html(this.fundamental.description);
 }
 
 //paint(): draw the tools in the tool array to the screen
@@ -268,13 +274,19 @@ ToolHandler.prototype.paint = function paint(){
 		var tool = this.tools[key];
 		var toolhtml="";
 
-		toolhtml+="<div class='card_tile' data-tool_id='"+tool.id+"'>";
+		toolhtml+="<div class='row card_tile' data-tool_id='"+tool.id+"'>";
+		toolhtml+=	"<div class='row'>";
+		toolhtml+=		"<div class='col-md-6 left_col'>";
+		toolhtml+=			"<span class='glyphicon glyphicon-download'></span><h3 class='tool_link' data-id='"+tool.id+"'>" + tool.name + "</h3>";
+		toolhtml+=		"</div>";
+		toolhtml+=		"<div class='col-md-6 right_col'>";
+		toolhtml+=		"</div>";
+		toolhtml+="	</div>";
 
-		toolhtml+=	"<h3 class='tool_link' data-id='"+tool.id+"'>" + tool.name + "</h3>";
-	
-		toolhtml+=	"<hr />";
 		toolhtml+=	"<p>" + tool.description + "</p>";
 		toolhtml+="</div>";
+
+				//toolhtml+=	"<hr />";
 
 		allhtml+=toolhtml;
 	}
@@ -285,7 +297,7 @@ ToolHandler.prototype.paint = function paint(){
 	if(window.admin_user){
 		var togglehtml ="";
 		togglehtml+='<p>Edit Mode</p>';
-		togglehtml+='<hr />';
+		//togglehtml+='<hr />';
 		togglehtml+='<label for="rdoEnable">Enable</label>';
 		togglehtml+='<input type="radio" id="rdoEnable" name="rdoDevToggle" /> ';
 		togglehtml+='<label for="rdoDisable">Disable</label>';
@@ -317,7 +329,7 @@ ToolHandler.prototype.setEditMode = function setEditMode(boolean){
 	if(boolean==true){
 		this.div.find(".card_tile").each(function(index){
 			var tool_id = $(this).attr("data-tool_id");
-			$(this).prepend("<a class='lnkEdit' data-id='"+ tool_id +"'>edit</a>");
+			$(this).find(".row .right_col").append("<a class='lnkEdit' data-id='"+ tool_id +"'>edit</a>");
 		});
 
 		var newLnkHtml="";

@@ -90,7 +90,7 @@
 				<li><a href="<?php echo site_url("services#services") ?>">Services</a></li>
 				<li><a href="<?php echo site_url("assessments#assessments") ?>">Assessments</a></li>
 				<li><a href="<?php echo site_url("resources") ?>">Resources</a></li>
-				<li><a href="<?php echo site_url("toolkit") ?>">Toolkit (dev)</a></li>
+				<li><a href="<?php echo site_url("toolkit") ?>">Team Tools</a></li>
 				<li><a href="<?php echo site_url("contact") ?>">Contact Us</a></li>
 			</ul>
 			

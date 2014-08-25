@@ -27,35 +27,36 @@ $(document).ready(function(){
 		auto_resize();
 	});
 
-	var title="Toolkit Landing";
+	var title="Landing";
 	var description="Content may go here";
 
 	switch(cat_id){
 		case 1:
 			$("#fundamental_title").addClass("green_theme");
 			$(".fundamentals").addClass("green_theme");
-			title = "<span class='label label-default'>Starting Your Team</span>";
+			title = "Starting Your Team";
 			description = "Click on a Fundamental below to view sample Tools. This page may include other instructional information";
 			break;
 
 		case 2:
 			$("#fundamental_title").addClass("blue_theme");
 			$(".fundamentals").addClass("blue_theme");
-			title="<span class='label label-default'>Developing Your Team</span>";
+			title="Developing Your Team";
 			description= "Click on a Fundamental below to view sample Tools. This page may include other instructional information";
 			break;
 
 		case 3:
 			$("#fundamental_title").addClass("purple_theme");
 			$(".fundamentals").addClass("purple_theme");
-			title="<span class='label label-default'>Assessing Your Team</span>";
+			title="Assessing Your Team";
 			description= "Click on a Fundamental below to view sample Tools. This page may include other instructional information";
 			break;
 	}
 	
-	$("#fundamental_title").html(title);
+	$("#fundamental_title").html("<span class='label label-default'>"+title+"</span>");
 	$("#fundamental_description").html(description);
-
+	$("#bcThisPage").html(title);
+	$("#bcTeamTools").attr("href", window.site_url + "toolkit/tools");
 	$(document).on('click', '.fundamentals',function(){
 		var fundamental_id = $(this).attr("data-name");
 
@@ -67,11 +68,14 @@ $(document).ready(function(){
 </script>
 
 <div id="toolkit">
-
+	<ol class="breadcrumb">
+	  <li><a id ="bcTeamTools" href="#">Team Tools</a></li>
+	  <li id="bcThisPage" class="active"></li>
+	</ol>
 	<div class="row">
 		<div class="col-md-3 left_col">
 
-			<h3><a href="<?php echo site_url() ?>toolkit/tools">Team Toolkit</a></h3>
+			<!--<h3><a href="<?php echo site_url() ?>toolkit/tools">Team Toolkit</a></h3>-->
 			<ul class="nav">
 					<li><a class='green_theme' href="<?php echo site_url() ?>toolkit/tools?page=1">Starting Your Team</a></li>
 					<li><a class='blue_theme' href="<?php echo site_url() ?>toolkit/tools?page=2">Developing Your Team</a></li>

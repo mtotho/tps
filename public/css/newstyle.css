@@ -125,11 +125,16 @@ footer p{
 	#toolkit_fundamental h2{
 		font-size:1.75em;
 	}
-	#toolkit_fundamental  #fundamental_description{
-		text-indent:3em;
-		font-style:italic;
-
+	.fundamental_header{
+	
 		margin-bottom:2em;
+	}
+	#fundamental_title{
+		font-size:1.2em;
+		font-weight:bold;
+	}
+	#fundamental_description{
+		font-style:italic;
 	}
 	#toolkit_fundamental .avail_tool{
 		margin-bottom:0.5em;
@@ -139,7 +144,7 @@ footer p{
 		background:white;
 	}
 	.card_tile:nth-child(2n+1){
-		background:#F0F0F0;
+		background:#E8E8E8;
 	}
 	.card_tile{
 		padding:1.5em 1em 1.5em 1em;

@@ -267,8 +267,9 @@ function ToolHandler(div){
 
 ToolHandler.prototype.init = function init(){
 	
-	$("#fundamental_title").html("<span class='label label-default'>"+this.fundamental.name+"</span>");
+	$("#fundamental_title").html(this.fundamental.name);
 	$("#fundamental_description").html(this.fundamental.description);
+	$("#bcThisPage").html(this.fundamental.name);
 }
 
 //paint(): draw the tools in the tool array to the screen

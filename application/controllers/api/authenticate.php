@@ -2,7 +2,7 @@
 
 require_once("application/libraries/REST_Controller.php");
 
-class Authentication extends REST_Controller {
+class Authenticate extends REST_Controller {
 
 
 	public function index_get(){
@@ -15,14 +15,7 @@ class Authentication extends REST_Controller {
 		$this->load->model("user_model");
 		$user = $this->post("user");
 
-		$valid = $this->user_model->authenticate($user);
-
-		if($valid==1){
-			$response['user']=$user;
-			$response['valid']=true;
-		}else{
-			$response['valid']=false;
-		}
+		$response['user'] = $this->user_model->authenticate($user);
 
 		$this->response($response);
 	}

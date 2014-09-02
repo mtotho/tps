@@ -12,10 +12,13 @@ $(document).ready(function(){
 			}
 		};
 
-		window.API.authenticate(data, function(data){
+		window.API.login(data, function(data){
 
-			if(data.valid==true){
-				window.Helper.createCookie("tps-auth-cookie", true,1);
+			if(data.user.valid==1){
+				
+				window.Helper.createCookie("tps-auth-token", data.user.token,1);
+				window.Helper.createCookie("tps-auth-email", data.user.email,1);
+				window.Helper.createCookie("tps-auth-user_type", data.user.user_type,1);
 				window.location = window.site_url;
 			}else{
 				alert("invalid email or pass");

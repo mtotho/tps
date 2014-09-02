@@ -269,8 +269,16 @@ function ApiConnector(){
         window.API.pushApiData(jsonString, url, querytype, callback);
     }
 
+    ApiConnector.prototype.login = function login(user, callback){
+        var url="/login";
+        var querytype = "POST";
+        var json = user;
+        var jsonString = JSON.stringify(json);
+        window.API.pushApiData(jsonString, url, querytype, callback);
+    }
+
     ApiConnector.prototype.authenticate = function authenticate(user, callback){
-        var url="/authentication";
+        var url="/authenticate";
         var querytype = "POST";
         var json = user;
         var jsonString = JSON.stringify(json);

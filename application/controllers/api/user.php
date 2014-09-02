@@ -6,15 +6,29 @@ class User extends REST_Controller {
 
 
 	public function index_get(){
-		
-		
+		$this->load->model("user_model");
+
+		$adminuser['email']=$this->get('auth_email');
+		$adminuser['token']=$this->get('auth_token');
+
+		$auth = $this->user_model->authenticate($adminuser);
+
+		if($auth['valid']==1){
+			$users = $this->user_model->getUsers();
+			$response["users"]=$users;
+		}else{
+			$response['status']=$auth['status'];
+		}
+	
+		$this->response($response);
 	}
 
 	public function index_post(){
 		$this->load->model("user_model");
 		$user = $this->post("user");
 
-		$this->user_model->newUser($user);
+		$response['user'] = $this->user_model->newUser($user);
+		$this->response($response);
 
-	}
+	}	
 }

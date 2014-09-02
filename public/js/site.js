@@ -32,17 +32,37 @@ $(function(){
 			"user_type":window.Helper.readCookie("tps-auth-user_type")
 
 		};
+
+		var auth_data = {"user":window.user};
+
+		window.API.authenticate(auth_data, function(auth){
+			var user = auth.user;
+			window.user=user;
+			
+			//if(user.valid==0){
+				
+			//	console.log(user);
+
+				//Not valid user, redirect to login page
+				//window.location="http://google.com";
+			//}else{
+				
+			//}
+		});
+
+
 	}
 	
 });
 
 $(document).ready(function(){
-	
+	console.log(window.user);
 	if(window.user.valid){
 		$("#authPanel").html("<a class='lnkLogout'>logout</a>");
 	}else{
 		$("#authPanel").html("<a class='lnkLogin'>login</a>");
 	}
+			
 
 
 	auto_resize();
@@ -57,7 +77,9 @@ $(document).on("click", ".lnkLogin", function(){
 });
 
 $(document).on("click", ".lnkLogout", function(){
-	window.Helper.eraseCookie("tps-auth-cookie");
+	window.Helper.eraseCookie("tps-auth-email");
+	window.Helper.eraseCookie("tps-auth-token");
+	window.Helper.eraseCookie("tps-auth-user_type");
 	window.location= window.site_url;
 });
 

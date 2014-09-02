@@ -9,8 +9,11 @@ function ApiConnector(){
     this.user['is_confirmed'] = true;
 
     // performs the ajax call to get our data
-    ApiConnector.prototype.pullApiData = function pullApiData(URL, QUERYTYPE, CALLBACK){
+    ApiConnector.prototype.pullApiData = function pullApiData(URL, QUERYTYPE, CALLBACK,async){
       console.log(QUERYTYPE);
+        if(typeof async =='undefined'){
+            async=true;
+        }
         if(QUERYTYPE.toLowerCase().indexOf("get") != -1){
             if(!window.Helper.isNull(window.USER)){
                 if(URL.indexOf("?") != -1){
@@ -37,6 +40,7 @@ function ApiConnector(){
                 type: QUERYTYPE,
                 url: URL,
                 dataType: "json",
+                async:async,
                 success: function(data){
                    //console.log(data);
                    //data = data.contents;
@@ -267,6 +271,12 @@ function ApiConnector(){
         var json = user;
         var jsonString = JSON.stringify(json);
         window.API.pushApiData(jsonString, url, querytype, callback);
+    }
+
+    ApiConnector.prototype.getUsers = function getUsers(callback){
+        var async = false;
+        var url="/user?auth_email="+window.user.email+"&auth_token="+window.user.token;
+        window.API.pullApiData(url, "GET", callback,async);
     }
 
     ApiConnector.prototype.login = function login(user, callback){

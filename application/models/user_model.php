@@ -2,8 +2,12 @@
 
 class User_model extends CI_Model{
 	
+	protected $user_query;
+
 	function __construct(){
 		parent::__construct();
+
+
 	}
 
 	function newUser($user){
@@ -15,9 +19,16 @@ class User_model extends CI_Model{
 		$query = "insert into toolkit_user set 
 					email= ?,
 					hash_pass = ?,
-					salt = ? ";
+					salt = ?,
+					fk_user_type=? ";
 
-		$this->db->query($query, array($user['email'], $hashpass, $salt));
+		$this->db->query($query, array($user['email'], $hashpass, $salt,$user['user_type']));
+
+		$user_id = $this->db->insert_id();
+
+		$user["id"]=$user_id;
+
+		return $user;
 
 	}
 
@@ -77,13 +88,18 @@ class User_model extends CI_Model{
 		//If current time, in seconds, is less than or equal to the token_expire time, token is not expired
 		if(time()<=$token_expire){
 			//token not expired
+//			error_log("token not expired");
+			error_log("return_token:".$return_token);
 
 			$return_token_hash = substr(hash('sha256',$return_token.$user['email']),0,6);
+
+			error_log("return_token_hash:".$return_token_hash);
 			if($return_token_hash==$dbuser->token){
 				$auth_user['valid']=1;
 				$auth_user['user_type']=$dbuser->fk_user_type;
 				$auth_user['token']=$return_token;
 			}else{
+				error_log("hash not equal");
 				$auth_user['valid']=0;
 				$auth_user['status_code']="BAD";
 				$auth_user['status']="Bad token";
@@ -104,6 +120,12 @@ class User_model extends CI_Model{
 		$result = $this->db->query($query, array($email));
 
 		return $result->row();
+	}
+
+	function getUsers(){
+		$query = "select id, email, fk_user_type as user_type from toolkit_user";
+		$results = $this->db->query($query);
+		return $results->result_array();
 	}
 
 }

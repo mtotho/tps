@@ -56,6 +56,45 @@ $(document).ready(function(){
 
 });	
 
+$(document).on("click",".lnkEditUser", function(){
+		var user_id = $(this).attr('data-user-id');
+		var user = window.users[user_id];
+
+		window.user_edit_id=user_id;
+
+		//update fields with existing data
+		$("#txtEditEmail").val(user.email);
+		$("#ddEditUserType").val(user.user_type);
+
+	
+		$("#modal_edit_user").modal({"show":true});
+});
+
+
+
+$(document).on("click",".btnSaveUser", function(){
+	var user_id = window.user_edit_id;
+
+	var newemail = $("#txtEditEmail").val();
+	var usertype = $("#ddEditUserType").val();
+
+	var updateduser = {
+		"id":user_id,
+		"email":newemail,
+		"user_type":usertype
+	};
+
+	window.API.updateUser({"user":updateduser},function(response){
+		var user = response.user;
+
+		window.users[user.id]=user;
+		paint();
+	});
+
+	$("#modal_edit_user").modal('hide');
+});
+
+
 function paint(){
 	//delete
 	$("#table_users").html("");
@@ -64,6 +103,7 @@ function paint(){
 	usertable+="<tr>";
 	usertable+="	<th>Email</th>";
 	usertable+="	<th>User Type</th>";
+	usertable+="	<th></th>";
 	usertable+="</tr>";	
 
 	//Loop over all the tools, build the html for the card then add to pagehtml
@@ -73,6 +113,7 @@ function paint(){
 		usertable+="<tr>";
 		usertable+="	<td>"+user.email+"</td>";
 		usertable+="	<td>"+user.user_type+"</td>";
+		usertable+="    <td><a class='lnkEditUser' data-user-id='"+user.id+"'>Edit</a></td>";
 		usertable+="</tr>";	
 	}
 
@@ -125,6 +166,38 @@ function paint(){
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 		        <button id="btnSaveNewUser" type="button" class="btn btn-primary">Add</button>
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
+
+		<div id='modal_edit_user' class="modal fade">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+		        <h4 class="modal-title">Edit User</h4>
+		      </div>
+		      <div class="modal-body">
+		       	<div class="form-group">
+					<label for="txtEditEmail">Email </label>
+					<input id="txtEditEmail" class="form-control"  type="email" placeholder="Enter email">
+				 </div>
+
+				<div class="form-group">
+					<label for="ddEditUserType">User Type </label>
+					<select id="ddEditUserType" class='form-control'>
+							<option value='admin'>admin</option>
+							<option value='super_admin'>super admin</option>
+							<option value='standard'>standard</option>
+					</select>
+				 </div>
+
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        <button id="btnSaveUser" type="button" class="btn btn-primary btnSaveUser">Update User</button>
 		      </div>
 		    </div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->

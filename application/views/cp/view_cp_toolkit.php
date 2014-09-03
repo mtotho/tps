@@ -56,6 +56,21 @@
 		});
 
 	});
+	
+	$(document).on("click",".lnkTeamEdit", function(){
+		var team_id = $(this).attr('data-team-id');
+		var team = window.teams[team_id];
+
+		$("#ddEditTeamLeader").html("");	
+		for(var id in window.users){
+			var user = window.users[id];
+			$("#ddEditTeamLeader").append("<option>"+user.email+"</option>");
+
+		}
+		$("#txtEditTeamName").val(team.name);
+			
+		$("#modal_edit_team").modal({"show":true});
+	});
 
 	function paintTeams(){
 		$("#table_teams").html("");
@@ -64,6 +79,7 @@
 		html+="<tr>";
 		html+="	<th>Team Name</th>";
 		html+="	<th>Leader</th>";
+		html+="	<th></th>";
 		html+="</tr>";	
 
 		//Loop over all the tools, build the html for the card then add to pagehtml
@@ -73,11 +89,14 @@
 			html+="<tr>";
 			html+="	<td>"+team.name+"</td>";
 			html+="	<td>"+team.leader+"</td>";
+			html+="	<td><a class='lnkTeamEdit' data-team-id='"+team.id+"'>Edit</a></td>";
 			html+="</tr>";	
 		}
 
 		$("#table_teams").html(html);
 	}
+
+
 
 </script>
 
@@ -134,7 +153,34 @@
 			  </div><!-- /.modal-dialog -->
 			</div><!-- /.modal -->
 
+			<div id='modal_edit_team' class="modal fade">
+			  <div class="modal-dialog">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+			        <h4 class="modal-title">Edit New Team</h4>
+			      </div>
+			      <div class="modal-body">
+			       	<div class="form-group">
+						<label for="txtEditTeamName">Team Name </label>
+						<input id="txtEditTeamName" class="form-control"  type="text" placeholder="Team Name">
+					 </div>
 
+					<div class="form-group">
+						<label for="ddEditTeamLeader">Team Leader </label>
+						<select id="ddEditTeamLeader" class='form-control'>
+							
+						</select>
+					</div>
+
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			        <button id="btnSaveTeam" type="button" class="btn btn-primary">Save</button>
+			      </div>
+			    </div><!-- /.modal-content -->
+			  </div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->
 
 
 			<table id="table_tools" class='table'></table>

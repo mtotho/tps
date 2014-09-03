@@ -29,6 +29,14 @@ class User extends REST_Controller {
 
 		$response['user'] = $this->user_model->newUser($user);
 		$this->response($response);
-
 	}	
+
+	public function index_put(){
+		$this->load->model("user_model");
+		$user = $this->put("user");
+
+		$response['user']=$this->user_model->updateUser($user);
+
+		$this->response($response);
+	}
 }

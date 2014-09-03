@@ -279,6 +279,14 @@ function ApiConnector(){
         window.API.pullApiData(url, "GET", callback,async);
     }
 
+    ApiConnector.prototype.updateUser = function updateUser(user, callback){
+        var url="/user";
+        var querytype = "PUT";
+        var json = user;
+        var jsonString = JSON.stringify(json);
+        window.API.pushApiData(jsonString, url, querytype, callback);
+    }
+
     ApiConnector.prototype.login = function login(user, callback){
         var url="/login";
         var querytype = "POST";

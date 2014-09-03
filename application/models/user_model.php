@@ -128,6 +128,16 @@ class User_model extends CI_Model{
 		return $results->result_array();
 	}
 
+	function updateUser($user){
+		$query = "update toolkit_user set 
+					email = ?,
+					fk_user_type=? 
+					where id=?";
+
+		$this->db->query($query, array($user['email'],$user['user_type'], $user['id']));
+
+		return $user;
+	}
 }
 
 ?>

@@ -59,6 +59,10 @@ $(document).ready(function(){
 	console.log(window.user);
 	if(window.user.valid){
 		$("#authPanel").html("<a class='lnkLogout'>logout</a>");
+		if(window.user.user_type=="admin" || window.user.user_type=="super_admin"){
+			$("#authPanel").append("&nbsp;&#124&nbsp;<a href='"+window.site_url+"cp'>control panel</a>");
+		}
+		
 	}else{
 		$("#authPanel").html("<a class='lnkLogin'>login</a>");
 	}

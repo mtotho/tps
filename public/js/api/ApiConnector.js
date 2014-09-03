@@ -295,6 +295,20 @@ function ApiConnector(){
         window.API.pushApiData(jsonString, url, querytype, callback);
     }
 
+    // -- team
+    ApiConnector.prototype.getTeams = function getTeams(callback){
+        var async = true;
+        var url="/team?auth_email="+window.user.email+"&auth_token="+window.user.token;
+        window.API.pullApiData(url, "GET", callback,async);
+    }
+
+    ApiConnector.prototype.newTeam = function newTeam(team, callback){
+        var url="/team";
+        var querytype = "POST";
+        var json = team;
+        var jsonString = JSON.stringify(json);
+        window.API.pushApiData(jsonString, url, querytype, callback);
+    }
 
 
 

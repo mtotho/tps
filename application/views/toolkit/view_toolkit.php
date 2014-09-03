@@ -3,32 +3,69 @@ $(document).ready(function(){
 
 	var cat_id=parseInt(window.Helper.getParameterByName("page"));
 
-	window.API.getFundamentals(cat_id,function(data){
+	if(cat_id==cat_id){
+		window.API.getFundamentals(cat_id,function(data){
 
-		var html="";
-		for(var i =0; i<data.length; i++){
-			var fundamental = data[i];
-			html+="<div class='fundamental_container'>";
+			var html="";
+			for(var i =0; i<data.length; i++){
+				var fundamental = data[i];
+				html+="<div class='fundamental_container'>";
+			
+				html+="		<div id='tf"+fundamental.id+"' data-name='"+fundamental.id+"' class='fundamentals'>";
+				//html+=	"		<div class='padding'>";
+				html+=				fundamental.name;
+				//html+="			</div>";
+				html+="		</div>";
+				html+="     <div class='short_desc_container'>";
+				html+="			<p class='fundamental_short_desc'>"+fundamental.short_description+"</p>";
+				html+="		</div>";
+				html+="<div style='clear:both'></div>";
+				html+="</div>";
+			}
+			
+			$("#fundamentals").html(html);
+
+			auto_resize();
+		});
+	}
+
+	var title="Teams Performance Tools";
+	var description="";
+	var landinghtml="";
+	
+
+	if(cat_id!=cat_id){
+
+		landinghtml+="<h4>Starting a Team</h4>";
+		landinghtml+="<ul>";
+		landinghtml+="	<li>Building the Foundation for Team Success</li>";
+		landinghtml+="  <li>Tips for Virtual Teams</li>";
+		landinghtml+="	<li>Teaming Skills</li>";
+		landinghtml+="</ul>";	
+
+		landinghtml+="<h4>Developing Your Team</h4>";
+		landinghtml+="<ul>";
+		landinghtml+="	<li>Goals and Objectives</li>";
+		landinghtml+="  <li>Roles and Responsibilities</li>";
+		landinghtml+="	<li>Processess and Procedures</li>";
+		landinghtml+="	<li>Relationships</li>";
+		landinghtml+="	<li>Team Leadership</li>";
+		landinghtml+="	<li>External Environment</li>";	
+		landinghtml+="</ul>";
 		
-			html+="		<div id='tf"+fundamental.id+"' data-name='"+fundamental.id+"' class='fundamentals'>";
-			//html+=	"		<div class='padding'>";
-			html+=				fundamental.name;
-			//html+="			</div>";
-			html+="		</div>";
-			html+="     <div class='short_desc_container'>";
-			html+="			<p class='fundamental_short_desc'>"+fundamental.short_description+"</p>";
-			html+="		</div>";
-			html+="<div style='clear:both'></div>";
-			html+="</div>";
-		}
-		
-		$("#fundamentals").html(html);
+		landinghtml+="<h4>Assessing and Identifying Your Team's Needs</h4>";
+		landinghtml+="<ul>";
+		landinghtml+="	<li>Milestones and Lessons Learned ActivitiesS</li>";
+		landinghtml+="  <li>Quick Team Assessments</li>";
+		landinghtml+="	<li>Team Assessments that Include Team Member Input</li>";
+		landinghtml+="</ul>";	
 
-		auto_resize();
-	});
+		$("#fundamentals").html(landinghtml);
+	}
+	
 
-	var title="Landing";
-	var description="Content may go here";
+	//$("")
+
 
 	switch(cat_id){
 		case 1:

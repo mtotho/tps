@@ -4,7 +4,7 @@ function ToolHandler(div){
 	this.tools = new Array();
 	this.fundamental;
 
-	if(window.admin_user){
+	if((window.user.user_type=="admin" || window.user.user_type=="super_admin") && window.user.valid==1){
 		this.edit_mode=true;
 	}else{
 		this.edit_mode=false;
@@ -46,7 +46,7 @@ function ToolHandler(div){
         FR.readAsDataURL( this.files[0] );
 */
         new_file =event.target.files[0];
-       console.log(new_file);
+      
         var fd = new FormData();
         fd.append("file",new_file);
         fd.append("tool_id",tool.id);
@@ -240,23 +240,39 @@ function ToolHandler(div){
 		//console.log(tool);
 		if(!window.Helper.isNull(tool.file_name)){
 
-			var confirm = window.confirm('Clicking okay will start the download of file: ' + tool.file_name);
-			if(confirm){
-				
-
-				//window.API.getFile(tool.file_id, function(file){	
+			if(window.user.valid==1){
+				var confirm = window.confirm('Clicking okay will start the download of file: ' + tool.file_name);
+				if(confirm){
 					
-				//window.location.href=window.site_url + "api/download/"+tool.file_id;
-				
-					//saveData(file.base64, file.name);
-				 var pom = document.createElement('a');
-				   //	console.log(btoa(file.base64));
-				 pom.setAttribute('href', window.site_url + "api/download/file/"+tool.file_id);
-				   //window.location.href="data:application/octet-stream;charset=utf-8;base64"+","+file.base64;
-				 pom.setAttribute('download', tool.file_name);
-				 pom.click();
-				
-			//});
+					//Log the download from the user
+					var logpost={
+						"user":window.user,
+						"file_id":tool.file_id
+					};
+
+					window.API.updateDownloadLog(logpost, function(response){
+						console.log(response);
+					});
+
+
+
+
+					//window.API.getFile(tool.file_id, function(file){	
+						
+					//window.location.href=window.site_url + "api/download/"+tool.file_id;
+					
+						//saveData(file.base64, file.name);
+					 var pom = document.createElement('a');
+					   //	console.log(btoa(file.base64));
+					 pom.setAttribute('href', window.site_url + "api/download/file/"+tool.file_id);
+					   //window.location.href="data:application/octet-stream;charset=utf-8;base64"+","+file.base64;
+					 pom.setAttribute('download', tool.file_name);
+					 pom.click();
+					
+				//});
+				}
+			}else{
+				alert("You must be logged in to do that");
 			}
 		}else{
 			alert("no file");

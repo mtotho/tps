@@ -133,7 +133,7 @@ function paint(){
 		<div class="col-md-1"></div>
 		<div class="col-md-10">
 			<button id='btnNewUser' type="button" class="btn btn-success" style="margin-bottom:1em">New User</button> 
-			<table id="table_users" class='table'></table>
+			<table id="table_users" class='table table-striped'></table>
 
 			
 		</div>

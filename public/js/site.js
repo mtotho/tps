@@ -17,7 +17,8 @@ $(function(){
 	
 		//window.valid_user = false;
 		window.user = {
-			"valid":false
+			"valid":false,
+			"user_type":"guest"
 		};
 
 	}else if(authcookie){

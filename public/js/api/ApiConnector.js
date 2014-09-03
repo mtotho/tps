@@ -258,6 +258,18 @@ function ApiConnector(){
         xhr.send();  */ 
     }
 
+    ApiConnector.prototype.updateDownloadLog = function updateDownloadLog(post, callback){
+        var url="/download_log";
+        var querytype = "POST";
+        var json = post;
+        var jsonString = JSON.stringify(json);
+        window.API.pushApiData(jsonString, url, querytype, callback);
+    }
+    ApiConnector.prototype.getDownloadLog = function getdownloadLog(callback){
+        var url="/download_log";
+        window.API.pullApiData(url, "GET", callback);
+    }
+
     //--fundamental
     ApiConnector.prototype.getFundamentals = function getFundamentals(cat_id, callback){
         var url="/fundamental?cat_id="+cat_id;

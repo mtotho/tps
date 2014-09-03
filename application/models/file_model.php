@@ -89,6 +89,29 @@ class File_model extends CI_Model{
 		return $result->row();
 	}
 
+	function logDownload($user, $file_id){
+		$this->load->model("user_model");
+		$dbuser = $this->user_model->getUser($user['email']);
+
+		$query = "insert into toolkit_download_log set 
+					fk_toolkit_file_id=?,
+					fk_user_id=?,
+					timestamp = NOW()";
+		$this->db->query($query, array($file_id, $dbuser->id));
+	}
+
+	function getDownloadLog(){
+
+		$query = "select tf.name as file_name, tu.email as user_email, tdl.timestamp from toolkit_download_log tdl 
+					inner join toolkit_file tf on tf.id=tdl.fk_toolkit_file_id
+					inner join toolkit_user tu on tu.id=tdl.fk_user_id
+					order by timestamp desc";
+
+		$results = $this->db->query($query);
+
+		return $results->result_array();
+	}
+
 }
 
 ?>

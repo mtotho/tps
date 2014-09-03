@@ -3,6 +3,7 @@
 
 		window.teams = new Array();
 		window.users = new Array();
+		window.downloads = new Array();
 
 		window.API.getUsers(function(response){
 			for(var i=0; i<response.users.length; i++){
@@ -24,6 +25,18 @@
 
 		});
 
+
+		window.API.getDownloadLog(function(response){
+			var log = response.log;
+			for(var i=0; i<log.length; i++){
+				var download = log[i];
+				window.downloads[i]=download;
+			}
+
+			paintDownloads();
+
+		
+		});
 
 		$("#btnNewTeam").click(function(){
 			$("#ddTeamLeader").html("");	
@@ -96,6 +109,30 @@
 		$("#table_teams").html(html);
 	}
 
+	function paintDownloads(){
+		$("#table_downloads").html("");
+
+		var html = "";
+		html+="<tr>";
+		html+="	<th>User</th>";
+		html+="	<th>File Name</th>";
+		html+="	<th>Timestamp</th>";
+		html+="</tr>";	
+
+		//Loop over all the tools, build the html for the card then add to pagehtml
+		for(var id in window.downloads){
+			var download = window.downloads[id];
+			
+			html+="<tr>";
+			html+="	<td>"+download.user_email+"</td>";
+			html+="	<td>"+download.file_name+"</td>";
+			html+="	<td>"+download.timestamp+"</td>";
+			html+="</tr>";	
+		}
+
+		$("#table_downloads").html(html);
+	}
+
 
 
 </script>
@@ -119,9 +156,13 @@
 		</div>
 
 		<div class="col-md-10">
-			<table id="table_downloads" class='table'></table>
 
-			<table id="table_teams" class='table'></table>
+			<h4>Downloads</h4>
+			<table id="table_downloads" class='table table-striped'></table>
+
+			<hr />
+			<h4>Teams</h4>
+			<table id="table_teams" class='table table-striped'></table>
 			<button id='btnNewTeam' type="button" class="btn btn-success" style="margin-bottom:1em">New Team</button> 
 			
 			<div id='modal_new_team' class="modal fade">

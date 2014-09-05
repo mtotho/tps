@@ -1,67 +1,53 @@
 <script>
 $(document).ready(function(){
 	$(".toolkit_go").click(function(){
+		console.log("derp");
 		window.location = window.site_url + "toolkit/tools";
 	});
 });
 </script>
 <div id="toolkit_landing">
 	<a name=""></a>
+	<ol class="breadcrumb">
+	  <li><a class="active">Overview</a></li>
+	
+	</ol>
 	<div class='row'>
 
 		<div class="col-md-3">
 			<ul id="tool_nav" class="nav">
 				<li><a href="#overview">Team Tools Overview</a></li>
-				<li><a href="#who_should_use">Who Uses These Tools?</a></li>
-				<li><a href="#purchasing">Purchasing Options</a></li>
+				<li><a class="toolkit_go" href="#">Team Performance Tools</a></li>
+				<li><a href="#purchasing">Purchasing and Tool Access</a></li>
 			</ul>
 		</div><!--end left column-->
 		<div class="col-md-9 right_col">
 
 			<div class="row">
-				<a name="overview"></a>
+
 				
 				<h3>Team Performance Tools Overview</h3>
-				<hr />
-				<h4>Purpose</h4>
-				<p>To improve team performance</p>
-				<h4>Features</h4>
-				<ul class="list-group">
-				  <li class="list-group-item">Guide your team from start to finish.</li>
-				  <li class="list-group-item">Intuitive and comprehensive tools.</li>
-				  <li class="list-group-item">Over 9000 tools!</li>
-				  <li class="list-group-item">Porta ac consectetur ac</li>
-				  <li class="list-group-item">Vestibulum at eros</li>
-				</ul>
+				<p> describe our framework of the 
+fundamentals, three circles, research, putting the tools in context, purpose of 
+tools, features, benefits, who uses, need to purchase, team roadmap </p>
+				
 
+			<p>Maecenas ullamcorper lectus non hendrerit luctus. Vestibulum facilisis erat in ullamcorper rutrum. Vivamus egestas metus in ornare tempus. Curabitur vitae consectetur felis. Integer pellentesque aliquam vulputate. In hac habitasse platea dictumst. Donec et feugiat enim, id feugiat lorem. Maecenas odio justo, pretium quis dolor eget, imperdiet eleifend quam. Etiam ac hendrerit risus, scelerisque auctor dolor. Phasellus ac tempus neque. Vestibulum faucibus purus enim, et rhoncus ante lacinia at. Donec tincidunt viverra justo, ut dictum arcu sodales finibus. Vestibulum hendrerit quam non tortor viverra commodo. Maecenas a congue urna. Vivamus dictum libero sit amet ipsum elementum pellentesque.</p>
 
-				<h4>Benefits</h4>
-				<p>Helps teams get better</p>
-
-
-				<h4>Get Started</h4>
-				<p>You may browse the tools and get a taste of what we have to offer before purchasing.</p>
-				<button type="button" class="btn toolkit_go btn-default btn-lg">
-					Go to Toolkit <span class="glyphicon glyphicon-play"></span></a>
-				</button>
+			<p>Nullam non mauris maximus, egestas felis sit amet, rutrum eros. Integer orci risus, viverra quis congue vel, fermentum non eros. Ut porttitor convallis magna, at sagittis libero mattis a. Suspendisse potenti. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec eget eros a diam rhoncus commodo. Vestibulum et auctor magna, non consectetur diam. Donec vitae lectus ut arcu placerat molestie. Pellentesque egestas interdum sem nec lobortis. Curabitur maximus consequat dictum. Nam sed nibh at quam auctor aliquam vitae blandit orci. Nullam fringilla mi ut quam tincidunt feugiat.</p>
+			
 			
 			</div>
 
-			<div class="row">
-				<a name="who_should_use"></a>
-				<h3>Who Uses These Tools?</h3>
-				<hr />
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis, nisl eu convallis vestibulum, tellus neque rhoncus sem, vel hendrerit nulla ligula quis neque. Phasellus ornare vestibulum egestas. Curabitur a ligula malesuada, pharetra tortor nec, facilisis elit. Nam sed mattis diam, sit amet malesuada nisi. Maecenas magna est, volutpat sit amet fermentum ac, fringilla lobortis nibh. Etiam vitae metus sagittis, dictum nibh vel, sollicitudin lorem. Aliquam id dictum erat.</p>
-				<p>Nunc venenatis accumsan massa, quis aliquam felis condimentum luctus. Aliquam eget rutrum libero. Ut convallis mi vitae cursus eleifend. Phasellus condimentum porttitor enim, vel adipiscing nisl varius a. Vestibulum mattis purus lorem, et ultricies diam rutrum vel. Fusce porta est mauris, nec consequat ante luctus non. Aliquam a placerat augue, auctor adipiscing lectus. Integer adipiscing lorem velit. Vestibulum at malesuada purus, non facilisis nulla. Pellentesque posuere lacus tellus, eget vulputate lacus scelerisque vestibulum.</p>
-				<p>Praesent pretium consectetur nibh, sed lacinia magna tincidunt vitae. Proin interdum fermentum pharetra. Phasellus lacus est, consequat sed lectus adipiscing, cursus mattis mi. Duis laoreet pellentesque lacus, sed tincidunt nunc hendrerit ut. Nam consectetur consequat augue vel congue. Morbi feugiat nulla ultricies venenatis tristique. Proin egestas convallis sem id dignissim. Sed venenatis ante non turpis aliquet faucibus.</p>
-			</div>
-
+		
 			<div class="row">
 
 
 				<a name="purchasing"></a>
+
 				<h3>Purchasing Options</h3>
 				<hr />
+						<p>(THIS may get its own page)</p>
 				<h4>Leasing Options</h4>
 				<p>Here lie some options</p>
 

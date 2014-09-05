@@ -29,13 +29,15 @@ $(document).ready(function(){
 		});
 	}
 
-	var title="Teams Performance Tools";
+	var title="Tools Home";
 	var description="";
 	var landinghtml="";
 	
 
 	if(cat_id!=cat_id){
 
+		landinghtml+="<h2>Team Performance Tools</h2>";
+		landinghtml+="<p>(Some sort of landing content for the toolkit goes here)</p>";
 		landinghtml+="<h4>Starting a Team</h4>";
 		landinghtml+="<ul>";
 		landinghtml+="	<li>Building the Foundation for Team Success</li>";
@@ -61,6 +63,12 @@ $(document).ready(function(){
 		landinghtml+="</ul>";	
 
 		$("#fundamentals").html(landinghtml);
+
+		$("#bcThisPage").removeClass("active");
+		$(".bcTeamTools").addClass("active");
+		$(".bcTeamTools").removeAttr("href");
+		$("#fundamental_title").remove();
+		$("#fundamental_description").remove();
 	}
 	
 
@@ -90,15 +98,27 @@ $(document).ready(function(){
 			break;
 	}
 	
-	$("#fundamental_title").html("<span class='label label-default'>"+title+"</span>");
-	$("#fundamental_description").html(description);
-	$("#bcThisPage").html(title);
-	$("#bcTeamTools").attr("href", window.site_url + "toolkit/tools");
-	$(document).on('click', '.fundamentals',function(){
-		var fundamental_id = $(this).attr("data-name");
+	if(cat_id%1===0){
 
-		window.location="tools/"+fundamental_id+"?ref="+cat_id;
-	})
+		$("#bcThisPage").html(title);
+		
+		$("#fundamental_title").html("<span class='label label-default'>"+title+"</span>");
+		$("#fundamental_description").html(description);
+	
+
+		$(".bcTeamTools").attr("href", window.site_url + "toolkit/tools");
+		$(document).on('click', '.fundamentals',function(){
+			var fundamental_id = $(this).attr("data-name");
+
+			window.location="tools/"+fundamental_id+"?ref="+cat_id;
+		});
+
+	}
+
+	$(".bcOverview").attr("href", window.site_url + "toolkit/");
+
+			
+
 });
 
 
@@ -106,7 +126,8 @@ $(document).ready(function(){
 
 <div id="toolkit">
 	<ol class="breadcrumb">
-	  <li><a id ="bcTeamTools" href="#">Team Tools</a></li>
+	  <li><a class ="bcOverview" href="#">Overview</a></li>
+	  <li><a class ="bcTeamTools" href="#">Team Performance Tools</a></li>
 	  <li id="bcThisPage" class="active"></li>
 	</ol>
 	<div class="row">

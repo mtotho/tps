@@ -27,6 +27,7 @@ $(document).ready(function(){
 	$("#bcLastPagelnk").html(toolkit_name);
 	$("#bcLastPagelnk").attr("href",ref_url);
 	$("#bcTeamTools").attr("href",window.site_url + "toolkit/tools");
+	$(".bcOverview").attr("href", window.site_url + "toolkit/");
 
 });
 </script>
@@ -43,6 +44,7 @@ $html="";
 ?>
 <div id='toolkit_fundamental'>
 	<ol class="breadcrumb">
+	  <li><a class ="bcOverview" href="#">Overview</a></li>
 	  <li><a id ="bcTeamTools" href="#">Team Performance Tools</a></li>
 	  <li id="bcLastPage"><a id="bcLastPagelnk" href="#"></a></li>
 	  <li id="bcThisPage" class="active"></li>

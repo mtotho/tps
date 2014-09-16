@@ -69,8 +69,8 @@
 		
 		<header>
 			
-			<div id="authPanel"></div>
-			<a href="<?php echo site_url("#home") ?>"><img id="imgHeaderLogo" src="<?php echo site_url("public/images/headerLogo.png") ?>" alt="Team Performance Solutions"  border="none"/></a> 
+			
+			<img id="imgHeaderLogo" src="<?php echo site_url("public/images/headerLogo.png") ?>" alt="Team Performance Solutions"  border="none"/>
             <h1>Team Performance Solutions&trade;</h1>
             <h2>Harnessing the power of teams</h2>
             
@@ -84,14 +84,16 @@
 	
 		</header>
 		
-			<ul class='nav nav-pills pull-right'>
-				<li><a href="<?php echo site_url() ?>">Home</a></li>
-				<li><a href="<?php echo site_url("about#about") ?>">About TPS</a></li>
-				<li><a href="<?php echo site_url("services#services") ?>">Services</a></li>
-				<li><a href="<?php echo site_url("assessments#assessments") ?>">Assessments</a></li>
+			<ul id="main_nav" class='nav nav-pills pull-right'>
+				<li id="navOverview" ><a href="<?php echo site_url("toolkit") ?>">Overview</a></li>
+				<li id="navTheTools"><a href="<?php echo site_url("toolkit/tools") ?>">The Tools</a></li>
+				<li><a href="<?php echo site_url("about#about") ?>">The Team</a></li>
+				<!--<li><a href="<?php echo site_url("services#services") ?>">Services</a></li>-->
+				<!--<li><a href="<?php echo site_url("assessments#assessments") ?>">Assessments</a></li>-->
 				<li><a href="<?php echo site_url("resources") ?>">Resources</a></li>
-				<li><a href="<?php echo site_url("toolkit") ?>">Team Tools</a></li>
-				<li><a href="<?php echo site_url("contact") ?>">Contact Us</a></li>
+				<li><a href="<?php echo site_url("toolkit/purchasing") ?>">Purchase</a></li>
+				<li id="authPanel"></li>
+				<!--<li><a href="<?php echo site_url("contact") ?>">Contact Us</a></li>-->
 			</ul>
 			
 			<div class='clearfix'></div>

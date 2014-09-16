@@ -23,6 +23,7 @@ header {
 header img{
 	float:left;
 	margin-right:1em;
+	cursor:pointer;
 }
 header h1{
 	margin:0 0 0.25em 0;
@@ -48,6 +49,21 @@ header h2{
 .nav{
 	margin-bottom:1em;
 }
+/*nav css*/
+#main_nav li a{
+	color:#A4A6A5;
+	font-weight:bold;
+}
+
+#main_nav #authPanel a{
+	color:#7290ac;
+	font-weight:normal;
+}
+#main_nav .active a{
+	background-color:white;
+	color:#555555;
+
+}
 
 /* Footer CSS */
 
@@ -62,6 +78,49 @@ footer p{
 	text-align: center;
 	font-size: 12px;
 	color: #7A7A7A;
+}
+
+
+/*Overview CSS*/
+#overview .row{
+	margin-bottom:0.5em;
+}
+#about_product{
+	background:#E8E8E8;
+	height:20em;
+}
+#about_product h3{
+	text-align:center;
+	font-size:3em;
+}
+#about_product p{
+	text-align:center;
+}
+#blurb1{
+	height:18em;
+}
+#blurb1 .right{
+	background-color:#F0D5B8;
+	height:18em;
+}
+#blurb1 .left{
+	background-color:#666666;
+	height:18em;
+}
+#product_signup{
+	background-color:#D2DDE7;
+	height:15em;
+	text-align:center;
+}
+#product_signup button{
+	width:10em;
+	height:3em;
+	font-weight:bold;
+	font-size:1.2em;
+	border:solid black 3px;
+	background-image:none;
+	background-color:#D2DDE7;
+	text-shadow:none;
 }
 
 

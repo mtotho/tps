@@ -1,5 +1,6 @@
 <script>
 $(document).ready(function(){
+	$("#navTheTools").addClass("active");
 
 	var cat_id=parseInt(window.Helper.getParameterByName("page"));
 
@@ -64,9 +65,7 @@ $(document).ready(function(){
 
 		$("#fundamentals").html(landinghtml);
 
-		$("#bcThisPage").removeClass("active");
-		$(".bcTeamTools").addClass("active");
-		$(".bcTeamTools").removeAttr("href");
+	
 		$("#fundamental_title").remove();
 		$("#fundamental_description").remove();
 	}
@@ -100,13 +99,12 @@ $(document).ready(function(){
 	
 	if(cat_id%1===0){
 
-		$("#bcThisPage").html(title);
 		
 		$("#fundamental_title").html("<span class='label label-default'>"+title+"</span>");
 		$("#fundamental_description").html(description);
 	
 
-		$(".bcTeamTools").attr("href", window.site_url + "toolkit/tools");
+	
 		$(document).on('click', '.fundamentals',function(){
 			var fundamental_id = $(this).attr("data-name");
 
@@ -115,8 +113,7 @@ $(document).ready(function(){
 
 	}
 
-	$(".bcOverview").attr("href", window.site_url + "toolkit/");
-
+	
 			
 
 });
@@ -125,11 +122,7 @@ $(document).ready(function(){
 </script>
 
 <div id="toolkit">
-	<ol class="breadcrumb">
-	  <li><a class ="bcOverview" href="#">Overview</a></li>
-	  <li><a class ="bcTeamTools" href="#">Team Performance Tools</a></li>
-	  <li id="bcThisPage" class="active"></li>
-	</ol>
+
 	<div class="row">
 		<div class="col-md-3 left_col">
 

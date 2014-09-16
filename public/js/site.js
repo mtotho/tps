@@ -67,13 +67,13 @@ $(function(){
 $(document).ready(function(){
 	console.log(window.user);
 	if(window.user.valid){
-		$("#authPanel").html("<a class='lnkLogout'>logout</a>");
+		$("#authPanel").html("<a class='lnkLogout'>Log Out</a>");
 		if(window.user.user_type=="admin" || window.user.user_type=="super_admin"){
 			$("#authPanel").append("&nbsp;&#124&nbsp;<a href='"+window.site_url+"cp'>control panel</a>");
 		}
 		
 	}else{
-		$("#authPanel").html("<a class='lnkLogin'>login</a>");
+		$("#authPanel").html("<a class='lnkLogin'>Log In</a>");
 	}
 			
 
@@ -98,6 +98,10 @@ $(document).on("click", ".lnkLogout", function(){
 	window.location= window.site_url;
 });
 
+$(document).on("click", "#imgHeaderLogo",function(){
+	window.location= window.site_url;
+	
+});
 
 function auto_resize(){
 	//gather heights:

@@ -2,7 +2,7 @@
 
 require_once("application/libraries/REST_Controller.php");
 
-class Login extends REST_Controller {
+class Membership extends REST_Controller {
 
 
 	public function index_get(){
@@ -10,14 +10,12 @@ class Login extends REST_Controller {
 		
 	}
 
-
-	//Logging in
+	//validate credentials
 	public function index_post(){
-		$this->load->model("user_model");
-		$user = $this->post("user");
+		$this->load->model("membership_model");
+		$membership = $this->post("membership");
 
-		$response['user'] = $this->user_model->login($user);
-
+		$response['membership'] = $this->membership_model->newMembership($membership);
 
 		$this->response($response);
 	}

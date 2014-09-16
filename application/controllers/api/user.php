@@ -4,7 +4,7 @@ require_once("application/libraries/REST_Controller.php");
 
 class User extends REST_Controller {
 
-
+	//get all users
 	public function index_get(){
 		$this->load->model("user_model");
 
@@ -23,6 +23,7 @@ class User extends REST_Controller {
 		$this->response($response);
 	}
 
+	//new user
 	public function index_post(){
 		$this->load->model("user_model");
 		$user = $this->post("user");
@@ -31,6 +32,7 @@ class User extends REST_Controller {
 		$this->response($response);
 	}	
 
+	//update user
 	public function index_put(){
 		$this->load->model("user_model");
 		$user = $this->put("user");

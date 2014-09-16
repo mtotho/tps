@@ -10,7 +10,7 @@ class Authenticate extends REST_Controller {
 		
 	}
 
-
+	//validate credentials
 	public function index_post(){
 		$this->load->model("user_model");
 		$user = $this->post("user");

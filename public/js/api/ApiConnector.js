@@ -330,6 +330,15 @@ function ApiConnector(){
         window.API.pushApiData(jsonString, url, querytype, callback);
     }
 
+    //--membership
+    ApiConnector.prototype.newMembership = function newMembership(membership, callback){
+        var url="/membership";
+        var querytype = "POST";
+        var json = membership;
+        var jsonString = JSON.stringify(json);
+        window.API.pushApiData(jsonString, url, querytype, callback);
+    }
+
 
 
 

@@ -28,6 +28,8 @@ class User_model extends CI_Model{
 
 		$user["id"]=$user_id;
 
+		$user = $this->login($user);
+
 		return $user;
 
 	}

@@ -5,6 +5,7 @@ $(function(){
 	window.admin_user = false;
 	window.valid_user = false;
 	window.user = new Array();
+	window.team_id=-1;
 
 
 
@@ -40,6 +41,13 @@ $(function(){
 			var user = auth.user;
 			window.user=user;
 			
+
+			if(!window.Helper.isNull(window.Helper.readCookie("tps-auth-team_id"))){
+
+				window.team_id=window.Helper.readCookie("tps-auth-team_id");
+				
+			}
+
 			//if(user.valid==0){
 				
 			//	console.log(user);

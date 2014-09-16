@@ -1,5 +1,10 @@
+body{
+	background-color:white;
+}
 .container{
+
 	margin-top:0.5em;
+	background-color:white;
 }
 .content{
 	padding-bottom:3em;

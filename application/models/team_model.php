@@ -32,4 +32,11 @@ class Team_model extends CI_Model{
 		return $team;
 	}
 
+	function updateTeamMembership($team_id, $membership_id){
+		$query = "update toolkit_team 
+					set fk_toolkit_membership_id = ?
+				    where id=?";
+		$this->db->query($query, array($membership_id, $team_id));
+	}
+
 }

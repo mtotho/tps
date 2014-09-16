@@ -33,6 +33,11 @@ class Toolkit extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
+	public function purchasing(){
+		$this->load->view('template/header');
+		$this->load->view('toolkit/view_purchasing');
+		$this->load->view('template/footer');
+	}
 
 
 

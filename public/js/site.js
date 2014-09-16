@@ -45,7 +45,7 @@ $(function(){
 			if(!window.Helper.isNull(window.Helper.readCookie("tps-auth-team_id"))){
 
 				window.team_id=window.Helper.readCookie("tps-auth-team_id");
-				
+
 			}
 
 			//if(user.valid==0){
@@ -93,6 +93,8 @@ $(document).on("click", ".lnkLogout", function(){
 	window.Helper.eraseCookie("tps-auth-email");
 	window.Helper.eraseCookie("tps-auth-token");
 	window.Helper.eraseCookie("tps-auth-user_type");
+	window.Helper.eraseCookie("tps-auth-verified");
+	window.Helper.eraseCookie("tps-auth-team_id");
 	window.location= window.site_url;
 });
 

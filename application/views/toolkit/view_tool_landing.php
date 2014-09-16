@@ -7,9 +7,9 @@ $(document).ready(function(){
 });
 </script>
 <div id="toolkit_landing">
-	<a name=""></a>
+
 	<ol class="breadcrumb">
-	  <li><a class="active">Overview</a></li>
+	  <li class="active">Overview</li>
 	
 	</ol>
 	<div class='row'>
@@ -18,7 +18,7 @@ $(document).ready(function(){
 			<ul id="tool_nav" class="nav">
 				<li><a href="#overview">Team Tools Overview</a></li>
 				<li><a class="toolkit_go" href="#">Team Performance Tools</a></li>
-				<li><a href="#purchasing">Purchasing and Tool Access</a></li>
+				<li><a href="<?php echo site_url("toolkit/purchasing") ?>">Purchasing and Tool Access</a></li>
 			</ul>
 		</div><!--end left column-->
 		<div class="col-md-9 right_col">
@@ -40,37 +40,7 @@ tools, features, benefits, who uses, need to purchase, team roadmap </p>
 			</div>
 
 		
-			<div class="row">
-
-
-				<a name="purchasing"></a>
-
-				<h3>Purchasing Options</h3>
-				<hr />
-						<p>(THIS may get its own page)</p>
-				<h4>Leasing Options</h4>
-				<p>Here lie some options</p>
-
-				<h4>Licensing Agreement</h4>
-				<p>Here is our agreement</p>
-
-				<h4>Payment Options</h4>
-				<p>We offer a couple of ways to lease our tools</p>
-				<ol>
-					<li>Purchase Order</li>
-					<li>Credit Card payment via Paypal</li>
-				</ol>
-
-				<h4>Membership</h4>
-				<p>An individual may purchase a membership, or a team can purchase many memberships.</p>
-				<p>A team leader can set up a team, purchase licenses for all the team members and distribute license codes so team members may register</p>
-				<p>Team leaders will be able to manage team members, track downloads and see other statistics.</p>
-				<p>If you are already a member you may login <a href="<?php echo site_url("login") ?>">here</a>.</p>
-				
-
-				
-			</div>
-
+		
 		 	<a class="back_to_top" href="">Back to Top</a>
 		</div><!--end right column-->
 		

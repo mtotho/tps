@@ -105,8 +105,8 @@ $(document).on("click", "#imgHeaderLogo",function(){
 
 function auto_resize(){
 	//gather heights:
-	var container_h = $(".container").outerHeight();
-	var window_h = $(window).height()-7;
+	var container_h = $(".container-fluid").outerHeight();
+	var window_h = $(window).height();
 
 	console.log(container_h);
 	console.log(window_h);

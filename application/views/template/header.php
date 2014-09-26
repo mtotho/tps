@@ -58,7 +58,7 @@
 
 </head>
 <body>	
-	<div class="container">
+	<div class="container-fluid">
 		<?php
 			//Load Admin Bar if user is logged in
 			if($this->session->userdata('valid')==1){
@@ -80,10 +80,6 @@
              
 			-->
          	
-			<div class='clearfix'></div>
-	
-		</header>
-		
 			<ul id="main_nav" class='nav nav-pills pull-right'>
 				<li id="navOverview" ><a href="<?php echo site_url("toolkit") ?>">Overview</a></li>
 				<li id="navTheTools"><a href="<?php echo site_url("toolkit/tools") ?>">The Tools</a></li>
@@ -95,8 +91,13 @@
 				<li id="authPanel"></li>
 				<!--<li><a href="<?php echo site_url("contact") ?>">Contact Us</a></li>-->
 			</ul>
+			<div class='clearfix'></div>
+	
+		</header>
+		
 			
 			<div class='clearfix'></div>
 		<div id="site_url" data-url="<?php echo site_url() ?>"></div>
 		<div class="content">
+			
 		

@@ -1,18 +1,22 @@
 <script>
 $(document).ready(function(){
+	window.th=new ToolHandler("tool_panel");
 	$('.collapse').collapse({
 		  toggle: false
 	});
 
+	//Main toolkit select click
 	$("#toolkit_selector .toolkit_sel").click(function(){
 		var tkid=$(this).attr("data-tkid");
 		$(".fundamental_tile").removeClass("active");
 		$('.collapse').collapse('hide');
 
 		$("#tk"+tkid).collapse('show');
-
+		auto_resize();
 	});
 
+
+	//fundamental click
 	$(document).on("click", ".fundamental_tile", function(){
 		$(".fundamental_tile").removeClass("active");
 		$(this).addClass("active");
@@ -20,10 +24,14 @@ $(document).ready(function(){
 
 		$("#tool_panel").html("");
 		//$("#tool_panel").collapse("hide");
-		var th = new ToolHandler("tool_panel", fid);
 
+		//Pain the tools of this fundamental id
+		window.th.paint(fid);
+
+		//expand tool panel
 		$("#tool_panel").collapse("show");
 
+		//nicely scroll to top of tools
 		goToByScroll("tool_panel");	
 		//console.log(fid);
 	})
@@ -44,6 +52,7 @@ $(document).ready(function(){
 			}
 			for(var j =0; j<data.fundamentals.length; j++){
 
+
 				//console.log(colmd);
 				var fundamental = data.fundamentals[j];
 				html+="<div class='col-md-"+colmd+" tile_outer'>";
@@ -52,6 +61,8 @@ $(document).ready(function(){
 				html+=	"</div>";
 				html+=	"		<p>"+fundamental.name + "</p>";
 				html+="</div>";
+
+				window.th.preload(fundamental.id);
 			}
 			console.log(html);
 			var div = "#tk"+cat_id;
@@ -67,86 +78,7 @@ $(document).ready(function(){
 	var title="Tools Home";
 	var description="";
 	var landinghtml="";
-	/*
-
-	if(cat_id!=cat_id){
-
-		landinghtml+="<h2>Team Performance Tools</h2>";
-		landinghtml+="<p>(Some sort of landing content for the toolkit goes here)</p>";
-		landinghtml+="<h4>Starting a Team</h4>";
-		landinghtml+="<ul>";
-		landinghtml+="	<li>Building the Foundation for Team Success</li>";
-		landinghtml+="  <li>Tips for Virtual Teams</li>";
-		landinghtml+="	<li>Teaming Skills</li>";
-		landinghtml+="</ul>";	
-
-		landinghtml+="<h4>Developing Your Team</h4>";
-		landinghtml+="<ul>";
-		landinghtml+="	<li>Goals and Objectives</li>";
-		landinghtml+="  <li>Roles and Responsibilities</li>";
-		landinghtml+="	<li>Processess and Procedures</li>";
-		landinghtml+="	<li>Relationships</li>";
-		landinghtml+="	<li>Team Leadership</li>";
-		landinghtml+="	<li>External Environment</li>";	
-		landinghtml+="</ul>";
-		
-		landinghtml+="<h4>Assessing and Identifying Your Team's Needs</h4>";
-		landinghtml+="<ul>";
-		landinghtml+="	<li>Milestones and Lessons Learned ActivitiesS</li>";
-		landinghtml+="  <li>Quick Team Assessments</li>";
-		landinghtml+="	<li>Team Assessments that Include Team Member Input</li>";
-		landinghtml+="</ul>";	
-
-		$("#fundamentals").html(landinghtml);
-
 	
-		$("#fundamental_title").remove();
-		$("#fundamental_description").remove();
-	}
-	
-
-	//$("")
-
-
-	switch(cat_id){
-		case 1:
-			$("#fundamental_title").addClass("green_theme");
-			$(".fundamentals").addClass("green_theme");
-			title = "Starting Your Team";
-			description = "Click on a Fundamental below to view sample Tools. This page may include other instructional information";
-			break;
-
-		case 2:
-			$("#fundamental_title").addClass("blue_theme");
-			$(".fundamentals").addClass("blue_theme");
-			title="Developing Your Team";
-			description= "Click on a Fundamental below to view sample Tools. This page may include other instructional information";
-			break;
-
-		case 3:
-			$("#fundamental_title").addClass("purple_theme");
-			$(".fundamentals").addClass("purple_theme");
-			title="Assessing Your Team";
-			description= "Click on a Fundamental below to view sample Tools. This page may include other instructional information";
-			break;
-	}
-	
-	if(cat_id%1===0){
-
-		
-		$("#fundamental_title").html("<span class='label label-default'>"+title+"</span>");
-		$("#fundamental_description").html(description);
-	
-
-	
-		$(document).on('click', '.fundamentals',function(){
-			var fundamental_id = $(this).attr("data-name");
-
-			window.location="tools/"+fundamental_id+"?ref="+cat_id;
-		});
-
-	}
-*/
 	
 			
 

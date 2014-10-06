@@ -1,7 +1,8 @@
-function ToolHandler(div, fundamental_id){
+function ToolHandler(div){
 	var instance = this;
 	this.div = $("#"+div);
 	this.tools = new Array();
+	this.fundamentals = new Array();
 	this.fundamental;
 
 	if((window.user.user_type=="admin" || window.user.user_type=="super_admin") && window.user.valid==1){
@@ -10,6 +11,8 @@ function ToolHandler(div, fundamental_id){
 		this.edit_mode=false;
 	}
 	
+
+	/*
 
 	//get the list of tools and populate the array. paint the tools when done
 	window.API.getTools(fundamental_id, function(data){
@@ -25,7 +28,7 @@ function ToolHandler(div, fundamental_id){
 		instance.paint();
 		
 		instance.init();
-	});
+	});*/
 
 	//file input change: converts file into base64 dataurl and stores info into tool
 	$(document).on('change','input[type=file]',function(event){
@@ -288,14 +291,41 @@ ToolHandler.prototype.init = function init(){
 	$("#bcThisPage").html(this.fundamental.name);
 }
 
+//loads the tools by fundamental id
+ToolHandler.prototype.preload = function preload(fid){
+
+	//get the list of tools and populate the array. paint the tools when done
+	window.API.getTools(fid, function(data){
+		var dbtools = data.tools;
+		var tools = new Array();
+		for(var i=0; i<dbtools.length; i++){
+			var tool = dbtools[i];
+
+
+			tools[tool.id]=tool;
+		}
+
+		window.th.fundamentals[fid]=tools;
+
+		//console.log(instance.tools);
+		//instance.fundamental = data.fundamental;
+		
+		//instance.paint();
+		
+		//instance.init();
+	});
+}
+
 //paint(): draw the tools in the tool array to the screen
-ToolHandler.prototype.paint = function paint(){
+ToolHandler.prototype.paint = function paint(fid){
 
 	var allhtml="";
 
+	var tools = this.fundamentals[fid];
+
 	//Loop over all the tools, build the html for the card then add to pagehtml
-	for(var key in this.tools){
-		var tool = this.tools[key];
+	for(var key in tools){
+		var tool = tools[key];
 		if(tool!=-1){
 		var toolhtml="";
 

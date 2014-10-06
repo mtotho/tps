@@ -1,39 +1,73 @@
 <script>
 $(document).ready(function(){
+	$('.collapse').collapse({
+		  toggle: false
+	});
+
+	$("#toolkit_selector .toolkit_sel").click(function(){
+		var tkid=$(this).attr("data-tkid");
+		$(".fundamental_tile").removeClass("active");
+		$('.collapse').collapse('hide');
+
+		$("#tk"+tkid).collapse('show');
+
+	});
+
+	$(document).on("click", ".fundamental_tile", function(){
+		$(".fundamental_tile").removeClass("active");
+		$(this).addClass("active");
+		var fid=$(this).attr("data-fid");
+
+		$("#tool_panel").html("");
+		//$("#tool_panel").collapse("hide");
+		var th = new ToolHandler("tool_panel", fid);
+
+		$("#tool_panel").collapse("show");
+
+		goToByScroll("tool_panel");	
+		//console.log(fid);
+	})
+
 	$("#navTheTools").addClass("active");
 
-	var cat_id=parseInt(window.Helper.getParameterByName("page"));
+	//var cat_id=parseInt(window.Helper.getParameterByName("page"));
 
-	if(cat_id==cat_id){
-		window.API.getFundamentals(cat_id,function(data){
-
-			var html="";
-			for(var i =0; i<data.length; i++){
-				var fundamental = data[i];
-				html+="<div class='fundamental_container'>";
+	for(var i=1; i<=3; i++){
+		window.API.getFundamentals(i,function(data){
 			
-				html+="		<div id='tf"+fundamental.id+"' data-name='"+fundamental.id+"' class='fundamentals'>";
-				//html+=	"		<div class='padding'>";
-				html+=				fundamental.name;
-				//html+="			</div>";
-				html+="		</div>";
-				html+="     <div class='short_desc_container'>";
-				html+="			<p class='fundamental_short_desc'>"+fundamental.short_description+"</p>";
-				html+="		</div>";
-				html+="<div style='clear:both'></div>";
+			var cat_id=data.cat_id;
+			var html="";
+
+			var colmd = 12/(data.fundamentals.length);
+			if(data.fundamentals.length>3){
+				colmd=4;
+			}
+			for(var j =0; j<data.fundamentals.length; j++){
+
+				//console.log(colmd);
+				var fundamental = data.fundamentals[j];
+				html+="<div class='col-md-"+colmd+" tile_outer'>";
+				html+=	"<div class='fundamental_tile' data-fid='"+fundamental.id+"'>";
+			
+				html+=	"</div>";
+				html+=	"		<p>"+fundamental.name + "</p>";
 				html+="</div>";
 			}
+			console.log(html);
+			var div = "#tk"+cat_id;
 			
-			$("#fundamentals").html(html);
+			$(div).html(html);
 
-			auto_resize();
+			//auto_resize();
 		});
+
 	}
+	
 
 	var title="Tools Home";
 	var description="";
 	var landinghtml="";
-	
+	/*
 
 	if(cat_id!=cat_id){
 
@@ -112,39 +146,66 @@ $(document).ready(function(){
 		});
 
 	}
-
+*/
 	
 			
 
 });
-
+function goToByScroll(id){
+      // Remove "link" from the ID
+    id = id.replace("link", "");
+      // Scroll
+    $('html,body').animate({
+        scrollTop: $("#"+id).offset().top},
+        'slow');
+}
 
 </script>
 
 <div id="toolkit">
 
-	<div class="row">
-		<div class="col-md-3 left_col">
+	<div id="toolkit_selector" class="row">
 
-			<!--<h3><a href="<?php echo site_url() ?>toolkit/tools">Team Toolkit</a></h3>-->
-			<ul class="nav">
-					<li><a class='green_theme' href="<?php echo site_url() ?>toolkit/tools?page=1">Starting Your Team</a></li>
-					<li><a class='blue_theme' href="<?php echo site_url() ?>toolkit/tools?page=2">Developing Your Team</a></li>
-					<li><a class='purple_theme' href="<?php echo site_url() ?>toolkit/tools?page=3">Assessing Your Team</a></li>
-			</ul>
-		</div>
 
-		<div class="col-md-9 right_col">
-			<h3 id='fundamental_title'></h3>
-			<p id='fundamental_description'></p>
-			
-			
-			<div id="fundamentals">
+		
+		<div class="col-md-4">
+		
+			<div class="toolkit_sel" data-tkid="1">
+
+				<p>Launch <br />Your Team</p>
 
 			</div>
+		
+		</div>
+
+		<div class="col-md-4">
+			<div class="toolkit_sel" data-tkid="2"><p>Develop <br /> Your Team</p></div>
+		</div>
+
+
+		<div class="col-md-4">
+			<div class="toolkit_sel" data-tkid="3"><p>Assess <br />Your Team</p></div>
+		</div>
+
+
+	</div>
+
+	<div id="fundamental_selector" class="row">
+		<div id="tk1" class="panel-collapse collapse">
+	
+
+		</div>
+		<div id="tk2" class="panel-collapse collapse ">
+		
+		</div>
+		<div id="tk3" class="panel-collapse collapse">
+		
 		</div>
 	</div>
 
+	<div id="tool_panel" class="row panel-collapse collapse">
+	tools
+	</div>
 	<!--
 
 	<div class="left_navigation">

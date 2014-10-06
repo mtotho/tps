@@ -18,7 +18,7 @@ class Toolkit extends CI_Controller {
 
 	public function tools($fundamental=null)
 	{	
-		
+		$this->js[0]="public/js/toolkit/ToolHandler.js";
 
 		if($fundamental==null){
 			$this->load->view('template/header');

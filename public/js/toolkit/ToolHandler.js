@@ -1,4 +1,4 @@
-function ToolHandler(div){
+function ToolHandler(div, fundamental_id){
 	var instance = this;
 	this.div = $("#"+div);
 	this.tools = new Array();
@@ -12,7 +12,7 @@ function ToolHandler(div){
 	
 
 	//get the list of tools and populate the array. paint the tools when done
-	window.API.getTools(window.fundamental_id, function(data){
+	window.API.getTools(fundamental_id, function(data){
 		var dbtools = data.tools;
 
 		for(var i=0; i<dbtools.length; i++){
@@ -299,16 +299,17 @@ ToolHandler.prototype.paint = function paint(){
 		if(tool!=-1){
 		var toolhtml="";
 
-			toolhtml+="<div class='row card_tile' data-tool_id='"+tool.id+"'>";
-			toolhtml+=	"<div class='row'>";
-			toolhtml+=		"<div class='col-md-6 left_col'>";
-			toolhtml+=			"<span class='glyphicon glyphicon-download'></span><h3 class='tool_link' data-id='"+tool.id+"'>" + tool.name + "</h3>";
-			toolhtml+=		"</div>";
-			toolhtml+=		"<div class='col-md-6 right_col'>";
-			toolhtml+=		"</div>";
+			toolhtml+="<div class='row tool_tile' data-tool_id='"+tool.id+"'>";
+			toolhtml+=	"<div class='col-md-2'>";
+			toolhtml+=		"<p class='tool_title'>" + tool.name + "</p>";
 			toolhtml+="	</div>";
-			
-			toolhtml+=	"<p>" + tool.description + "</p>";
+			toolhtml+=	"<div class='col-md-8'>";
+			toolhtml+=		"<p class='tool_descr'>" + tool.description + "</p>";
+			toolhtml+="	</div>";
+			toolhtml+=	"<div class='col-md-2'>";
+			toolhtml+=   "<button id='btnSignup' type='button' class='btn btn-default btnCustom'>Download</button>"
+			toolhtml+="	</div>";
+
 			toolhtml+="</div>";
 
 					//toolhtml+=	"<hr />";

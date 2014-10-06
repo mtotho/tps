@@ -10,8 +10,11 @@ class Fundamental extends REST_Controller {
 		$this->load->model("fundamental_model");
 
 		$catId=$this->get("cat_id");
-		$fundamentals=$this->fundamental_model->getByCategoryId($catId);
-		$this->response($fundamentals);
+		$response['fundamentals']=$this->fundamental_model->getByCategoryId($catId);
+		$response['cat_id'] = $catId;
+		
+		$this->response($response);
+
 	}
 
 

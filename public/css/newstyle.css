@@ -3,11 +3,18 @@ body{
 }
 .container{
 
-	margin-top:0.5em;
+
 	background-color:white;
 }
+
+@media screen and (min-width:1300px) {
+	/*.container-fluid{
+		width:95%;
+	}*/
+}
 .content{
-	
+	position:relative;
+
 }
 .back_to_top{
 	display:block;
@@ -15,26 +22,40 @@ body{
 }
 /* Header CSS */
 header {
-  margin-bottom:0.25em;
-  padding-top:0.5em;
-  padding-bottom:0em;
+	z-index:9999;
+	background:white;
+	/*box-shadow: 0px 1px 5px #C7C7C7;*/
+  padding:0.5em 5em 0.5em 5em;
+   
 }
+#header_panel{
+	width:48%;
+	
+	float:left;
+}
+@media screen and (min-width:300px) and (max-width:1160px) {
+	#header_panel{
+		width:100%;
+	}
+
+}
+
+
 header img{
 	float:left;
 	margin-right:1em;
 	cursor:pointer;
+	width:110px;
 }
 header h1{
-	margin:0 0 0.25em 0;
+	margin:0 0 0 0;
 	position:relative;
-	top:0.5em;
-	font-size:2em;
+	font-size:1.8em;
 }
 header h2{
+	margin: 0 0 0 0 ;
 	position:relative;
-	top:0.5em;
-	margin: 0 0 0.5em 0;
-	font-size:1.5em;
+	font-size:1.3em;
 	text-indent:4em;
 	color: #7290ac;
 	font-style:italic;
@@ -46,9 +67,12 @@ header h2{
 /* Nav CSS */
 
 .nav{
-	margin-bottom:1em;
+	
 }
 /*nav css*/
+#main_nav{
+	margin-top:1em;
+}
 #main_nav li a{
 	color:#A4A6A5;
 	font-weight:bold;
@@ -81,6 +105,9 @@ footer p{
 
 
 /*Overview CSS*/
+#overview{
+
+}
 #overview .row{
 	margin-bottom:0.5em;
 }
@@ -111,6 +138,16 @@ footer p{
 	height:15em;
 	text-align:center;
 }
+.btnCustom{
+	width:10em;
+	height:3em;
+	font-weight:bold;
+	font-size:1.2em;
+	border:solid black 3px;
+	background-image:none;
+	background-color:#D2DDE7;
+	text-shadow:none;
+}
 #product_signup button{
 	width:10em;
 	height:3em;
@@ -124,8 +161,116 @@ footer p{
 
 
 
-
+#toolkit{
+	
+}
 /* Toolkit */
+#toolkit_selector {
+	margin-top:1em;
+	margin-bottom:2em;
+	padding-left:5em;
+	padding-right:5em;
+
+}
+#toolkit_selector div{
+
+	padding-left:10px;
+	padding-right:10px;
+}
+#toolkit_selector div div{
+	cursor:pointer;
+	height:450px;
+	z-index:9999;
+}
+
+#toolkit_selector div:nth-child(1) div{
+	background-color:#C5C8CB;
+}
+#toolkit_selector div:nth-child(2) div{
+	background-color:#D8E4EF;
+}
+#toolkit_selector div:nth-child(3) div{
+	background-color:#D6B4A3;
+}
+#toolkit_selector .toolkit_sel{
+	
+	position:relative;
+
+}
+.toolkit_sel p{
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+	bottom:10%;
+	text-align:center;
+	font-weight:bold;
+	font-size: 3em;
+	color:#777D83;
+}
+@media screen and (min-width:1024px) {
+	#toolkit_selector div div{
+		height:250px
+	}
+	.toolkit_sel p{
+		font-size:2.5em;
+	}
+}
+@media screen and (min-width:1300px) {
+	#toolkit_selector div div{
+		height:300px
+	}
+	.toolkit_sel p{
+		font-size:2.5em;
+	}
+}
+@media screen and (min-width:1600px) {
+	#toolkit_selector div div{
+		height:350px
+	}
+	.toolkit_sel p{
+		font-size:3em;
+	}
+}
+
+.fundamental_tile{
+	background-color:white;
+	position:relative;
+	border:solid 13px #D8E4EF;
+	width:150px;
+	height:150px;
+	margin:0 auto 1em auto;
+	cursor:pointer;
+}
+.fundamental_tile.active{
+	border:solid 13px #898F94;
+}
+.tile_outer p{
+	text-align:center;
+	margin:0 auto 1.5em auto;
+	font-weight:bold;
+	color:#898F94;
+}
+
+#tool_panel{
+	padding-left:5em;
+	padding-right:5em;
+}
+.tool_tile{
+	padding:0.5em 0 0.5em 0;
+	background-color:#D8E4EF;
+	margin-bottom:0.5em;
+}
+.tool_tile .tool_title{
+	font-weight:bold;
+	font-size:1.5em;
+	color:#777D83;
+}
+.tool_tile .tool_descr{
+	color:#4F4F4F;
+}
+
 	/*landing page*/
 
 	#tool_nav{

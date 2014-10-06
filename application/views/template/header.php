@@ -59,21 +59,13 @@
 </head>
 <body>	
 	<div class="container-fluid">
-		<?php
-			//Load Admin Bar if user is logged in
-			if($this->session->userdata('valid')==1){
-				$this->load->view('template/admin_bar');
-			}
-		?>
 		
-		
-		<header>
-			
-			
-			<img id="imgHeaderLogo" src="<?php echo site_url("public/images/headerLogo.png") ?>" alt="Team Performance Solutions"  border="none"/>
-            <h1>Team Performance Solutions&trade;</h1>
-            <h2>Harnessing the power of teams</h2>
-            
+		<header class="row">
+			<div id="header_panel">
+				<img id="imgHeaderLogo" src="<?php echo site_url("public/images/headerLogo.png") ?>" alt="Team Performance Solutions"  border="none"/>
+	            <h1>Team Performance Solutions&trade;</h1>
+	            <h2>Harnessing the power of teams</h2>
+            </div>
           	<!--
             	<p>(267)<span>-</span>614<span>-</span>3612</p>
                 <p><a href="mailto:info@teamperformancesolutions.com" target="_blank">info@teamperformancesolutions.com</a></p>
@@ -92,11 +84,10 @@
 				<!--<li><a href="<?php echo site_url("contact") ?>">Contact Us</a></li>-->
 			</ul>
 			<div class='clearfix'></div>
-	
 		</header>
 		
 			
-			<div class='clearfix'></div>
+		
 		<div id="site_url" data-url="<?php echo site_url() ?>"></div>
 		<div class="content">
 			

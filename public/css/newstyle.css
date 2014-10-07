@@ -22,7 +22,7 @@ body{
 }
 /* Header CSS */
 header {
-	z-index:9999;
+	
 	background:white;
 	/*box-shadow: 0px 1px 5px #C7C7C7;*/
   padding:0.5em 5em 0.5em 5em;
@@ -30,7 +30,7 @@ header {
 }
 #header_panel{
 	width:48%;
-	
+	cursor:pointer;
 	float:left;
 }
 @media screen and (min-width:300px) and (max-width:1160px) {
@@ -44,7 +44,7 @@ header {
 header img{
 	float:left;
 	margin-right:1em;
-	cursor:pointer;
+	
 	width:110px;
 }
 header h1{
@@ -105,9 +105,45 @@ footer p{
 }
 
 
+/*home css*/
+#home{
+	padding-left:5em;
+	padding-right:5em;
+}
+#row_product_info{
+	height:30em;
+	background-color:#D5E0EB;
+}
+#row_product_info h3{
+	font-size:4em;
+}
+#row_product_info p {
+	width:50%;
+		color:#777D83;
+}
+#row_explore_tools{
+	height:40em;
+}
+#row_explore_tools h4{
+	text-align:center;
+	font-weight:bold;
+	font-size:3.5em;
+}
+#row_explore_tools div p{
+	color:#777D83;
+	font-weight:bold;
+	font-size:2em;
+	text-align:center;
+}
+#row_explore_tools button{
+	margin:0 auto 0 auto;
+	display:block;
+}
+
 /*Overview CSS*/
 #overview{
-
+	padding-left:5em;
+	padding-right:5em;
 }
 #overview .row{
 	margin-bottom:0.5em;
@@ -183,6 +219,14 @@ footer p{
 	height:450px;
 	z-index:9999;
 }
+#toolkit_selector div div:hover{
+	box-shadow: 0px 2px 5px #C7C7C7;
+}
+#toolkit_selector div div.active{
+	box-shadow: 0px 5px 5px #C7C7C7;
+}
+
+
 
 #toolkit_selector div:nth-child(1) div{
 	background-color:#C5C8CB;
@@ -234,7 +278,10 @@ footer p{
 		font-size:3em;
 	}
 }
-
+#fundamental_selector{
+	padding-left:5em;
+	padding-right:5em;
+}
 .fundamental_tile{
 	background-color:white;
 	position:relative;
@@ -259,18 +306,33 @@ footer p{
 	padding-right:5em;
 }
 .tool_tile{
-	padding:0.5em 0 0.5em 0;
+	padding:1em 0 1em 0;
 	background-color:#D8E4EF;
 	margin-bottom:0.5em;
+
 }
 .tool_tile .tool_title{
+	
 	font-weight:bold;
 	font-size:1.5em;
 	color:#777D83;
 }
+.tool_tile button{
+	background-color:#D8E4EF;
+	border-color:#777D83;
+	color:#777D83;
+	  position: relative;
+
+}
 .tool_tile .tool_descr{
 	color:#4F4F4F;
 }
+.vcenter{
+	   display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
 
 	/*landing page*/
 

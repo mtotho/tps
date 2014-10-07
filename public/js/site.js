@@ -98,7 +98,7 @@ $(document).on("click", ".lnkLogout", function(){
 	window.location= window.site_url;
 });
 
-$(document).on("click", "#imgHeaderLogo",function(){
+$(document).on("click", "#header_panel",function(){
 	window.location= window.site_url;
 	
 });

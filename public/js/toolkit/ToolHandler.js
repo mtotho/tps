@@ -330,13 +330,13 @@ ToolHandler.prototype.paint = function paint(fid){
 		var toolhtml="";
 
 			toolhtml+="<div class='row tool_tile' data-tool_id='"+tool.id+"'>";
-			toolhtml+=	"<div class='col-md-2'>";
+			toolhtml+=	"<div class='col-md-2 vcenter'>";
 			toolhtml+=		"<p class='tool_title'>" + tool.name + "</p>";
 			toolhtml+="	</div>";
-			toolhtml+=	"<div class='col-md-8'>";
+			toolhtml+=	"<div class='col-md-8 vcenter'>";
 			toolhtml+=		"<p class='tool_descr'>" + tool.description + "</p>";
 			toolhtml+="	</div>";
-			toolhtml+=	"<div class='col-md-2'>";
+			toolhtml+=	"<div class='col-md-2 vcenter'>";
 			toolhtml+=   "<button id='btnSignup' type='button' class='btn btn-default btnCustom'>Download</button>"
 			toolhtml+="	</div>";
 

@@ -9,8 +9,11 @@ $(document).ready(function(){
 	$("#toolkit_selector .toolkit_sel").click(function(){
 		var tkid=$(this).attr("data-tkid");
 		$(".fundamental_tile").removeClass("active");
-		$('.collapse').collapse('hide');
+	
+		$(".toolkit_sel").removeClass("active");
+		$(this).addClass("active");
 
+		$('.collapse').collapse('hide');
 		$("#tk"+tkid).collapse('show');
 		auto_resize();
 	});
@@ -106,17 +109,25 @@ function goToByScroll(id){
 
 				<p>Launch <br />Your Team</p>
 
+				<div class="arrow"></div>
 			</div>
 		
 		</div>
 
 		<div class="col-md-4">
-			<div class="toolkit_sel" data-tkid="2"><p>Develop <br /> Your Team</p></div>
+			<div class="toolkit_sel" data-tkid="2">
+				<p>Develop <br /> Your Team</p>
+				<div class="arrow"></div>
+			</div>
+
 		</div>
 
 
 		<div class="col-md-4">
-			<div class="toolkit_sel" data-tkid="3"><p>Assess <br />Your Team</p></div>
+			<div class="toolkit_sel" data-tkid="3">
+				<p>Assess <br />Your Team</p>
+				<div class="arrow"></div>
+			</div>
 		</div>
 
 

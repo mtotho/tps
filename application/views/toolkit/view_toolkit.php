@@ -5,6 +5,15 @@ $(document).ready(function(){
 		  toggle: false
 	});
 
+	$(".collapse").on('hide.bs.collapse',function(){
+		//goToByScroll("toolkit");	
+		//auto_resize();
+	});	
+	$(".collapse").on('hidden.bs.collapse',function(){
+		//goToByScroll("toolkit");	
+		auto_resize();
+	});
+
 	//Main toolkit select click
 	$("#toolkit_selector .toolkit_sel").click(function(){
 		var tkid=$(this).attr("data-tkid");
@@ -15,7 +24,7 @@ $(document).ready(function(){
 
 		$('.collapse').collapse('hide');
 		$("#tk"+tkid).collapse('show');
-		auto_resize();
+		
 	});
 
 
@@ -26,7 +35,7 @@ $(document).ready(function(){
 		var fid=$(this).attr("data-fid");
 
 		$("#tool_panel").html("");
-		//$("#tool_panel").collapse("hide");
+		$("#tool_panel").collapse("hide");
 
 		//Pain the tools of this fundamental id
 		window.th.paint(fid);
@@ -34,10 +43,11 @@ $(document).ready(function(){
 		//expand tool panel
 		$("#tool_panel").collapse("show");
 
-		//nicely scroll to top of tools
 		goToByScroll("tool_panel");	
 		//console.log(fid);
-	})
+	});
+
+	
 
 	$("#navTheTools").addClass("active");
 
@@ -109,7 +119,7 @@ function goToByScroll(id){
 
 				<p>Launch <br />Your Team</p>
 
-				<div class="arrow"></div>
+				
 			</div>
 		
 		</div>
@@ -117,7 +127,7 @@ function goToByScroll(id){
 		<div class="col-md-4">
 			<div class="toolkit_sel" data-tkid="2">
 				<p>Develop <br /> Your Team</p>
-				<div class="arrow"></div>
+				
 			</div>
 
 		</div>
@@ -126,7 +136,7 @@ function goToByScroll(id){
 		<div class="col-md-4">
 			<div class="toolkit_sel" data-tkid="3">
 				<p>Assess <br />Your Team</p>
-				<div class="arrow"></div>
+
 			</div>
 		</div>
 

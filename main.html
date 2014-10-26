@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html data-ng-app="tpsApp">
+	<head>
+		<title>Team Performance Solutions</title>
+
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"><!-- Optional theme -->
+
+		<!--Custom CSS-->
+		<link rel="stylesheet" href="res/css/newstyle.css" />
+
+
+	 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	    <!--[if lt IE 9]>
+	      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+
+
+
+	</head>
+
+
+	<body>	
+		<div class="container-fluid">
+		
+			<header class="row"  ng-controller="navController">
+				
+				<div id="header_panel" ng-click="gotoPath('/')">
+					<img id="imgHeaderLogo" src="res/images/headerLogo.png" alt="Team Performance Solutions"  border="none"/>
+		            <h1>Team Performance Solutions&trade;</h1>
+		            <h2>Harnessing the power of teams</h2>
+	            </div>
+	          	
+	         	<div class="nav_bar">
+
+					<ul id="main_nav" class='nav nav-pills pull-right'>
+						<li id="navOverview" ><a href="#/toolkit">Overview</a></li>
+						<li id="navTheTools"><a href="#/toolkit/tools/">The Tools</a></li>
+						<li><a href="#/about">The Team</a></li>
+						<li><a href="#/resources">Resources</a></li>
+						<li><a href="#/purchasing">Purchase</a></li>
+						<li ng-show="!isLoggedIn" class="lnkLogin"><a  href="#/login">Login</a></li>
+						<li ng-show="isLoggedIn"  class="lnkLogout"><a href="#/admin" ng-click="logout()">Logout</a></li>
+						<!--<li><a href="<?php echo site_url("contact") ?>">Contact Us</a></li>-->
+					</ul>
+				</div>
+				<div class='clearfix'></div>
+			</header>
+			
+
+			<div ng-view class="content"></div>
+			<div class="clearfooter"></div>	
+
+
+			<footer class='container-fluid'>
+				<p class='center-block'>|&nbsp; &copy;2012 Team Performance Solutions&trade;. All Rights Reserved.  &nbsp;|</p>
+			</footer>	
+	
+		</div><!--end contaier-->
+
+
+
+		<!--Vendor Libs -->
+	    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+	    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-route.min.js"></script>
+	    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-cookies.js"></script>
+	    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	    <script src="https://maps.google.com/maps/api/js?key=AIzaSyAHDR09KWWgVoyFCoavaoHm2cCAHX5VL2g&sensor=false&libraries=places,visualization">
+	    		</script>
+	    <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+
+	   
+
+	    <!-- UI Libs -->
+	    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/transition.min.js"></script>
+	    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/collapse.min.js"></script>
+	    <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+
+
+	    <!-- App libs-->
+	   
+	    <script src="app/app.js"></script>
+
+	    <script src="app/controllers/AboutController.js"></script>
+	    <script src="app/controllers/HomeController.js"></script>
+	    <script src="app/controllers/loginController.js"></script>
+	    <script src="app/controllers/navController.js"></script>
+	    <script src="app/controllers/OverviewController.js"></script>
+	    <script src="app/controllers/PurchasingController.js"></script>
+	    <script src="app/controllers/RegistrationController.js"></script>
+	    <script src="app/controllers/ToolkitController.js"></script>
+
+	    <script src="app/services/api.js"></script>
+		<script src="app/services/auth.js"></script>
+
+
+	</body>
+
+</html>

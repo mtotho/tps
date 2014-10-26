@@ -1,0 +1,64 @@
+<div id="toolkit">
+	
+	<div id="toolkit_selector" class="row">
+		<div class="col-md-4">
+
+			<div class="toolkit_sel" ng-click="toolkitSelect(1)">
+				<p>Launch <br />Your Team</p>
+			</div>
+		
+		</div>
+
+		<div class="col-md-4">
+			<div class="toolkit_sel" ng-click="toolkitSelect(2)">
+				<p>Develop <br /> Your Team</p>	
+			</div>
+		</div>
+
+
+		<div class="col-md-4">
+			<div class="toolkit_sel" ng-click="toolkitSelect(3)">
+				<p>Assess <br />Your Team</p>
+			</div>
+		</div>
+
+
+	</div>
+
+	<div id="fundamental_selector" class="row">
+		<div class="panel-collapse collapse">
+			<div class='col-md-4 tile_outer' ng-repeat="f in fundamentals">
+				<div class='fundamental_tile' ng-click="fundamentalSelect($index)">
+				
+				</div>
+				<p>{{ f.name }}</p>
+			</div>
+
+
+		</div>
+		
+	</div>
+
+	<div class="clearfix"></div>
+	<div id="tool_panel" class="panel-collapse collapse">
+		<div ng-repeat="t in tools">
+
+
+			<div class='row tool_tile'>
+				<div class='col-md-2'>
+					<p class='tool_title'>{{ t.name }}</p>
+				</div>	
+				<div class='col-md-8'>
+					<p class='tool_descr'>{{ t.description }}</p>
+				</div>
+				<div class='col-md-2'>
+					<button id='btnSignup' type='button' class='btn btn-default btnCustom'>Download</button>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+
+
+</div>

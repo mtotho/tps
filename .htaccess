@@ -1,0 +1,14 @@
+#File to redirect around
+DirectoryIndex main.html
+RewriteEngine on
+
+#Base path e.g localhost/tps/
+RewriteBase /tps/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+#do not rewrite if the path is one of the specified below
+RewriteCond $1 !^(main\.html|res|api|favicon\.ico|robots\.txt)
+
+#rewrite 
+RewriteRule ^(.*)$ main.html [L]
